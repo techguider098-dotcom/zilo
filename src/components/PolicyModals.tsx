@@ -21,7 +21,7 @@ export const PolicyModals: React.FC<PolicyModalsProps> = ({ modalType, onClose }
           content: (
             <div className="space-y-4">
               <p>
-                Welcome to <strong>zilomart</strong> (zilomart.com). By accessing or purchasing our CapCut Pro bundle, you agree to comply with and be bound by the following terms and conditions.
+                Welcome to <strong>zilomart</strong> (zilomart.shop). By accessing or purchasing our CapCut Pro bundle, you agree to comply with and be bound by the following terms and conditions.
               </p>
               <h5 className="font-bold text-white text-sm">1. License &amp; Usage</h5>
               <p>
@@ -37,7 +37,7 @@ export const PolicyModals: React.FC<PolicyModalsProps> = ({ modalType, onClose }
               </p>
               <h5 className="font-bold text-white text-sm">4. Contact Information</h5>
               <p>
-                For questions regarding terms, reach us at: <a href="mailto:support@zilomart.com" className="text-cyan-400 underline">support@zilomart.com</a>.
+                For questions regarding terms, reach us at: <a href="mailto:support@zilomart.shop" className="text-cyan-400 underline">support@zilomart.shop</a>.
               </p>
             </div>
           ),
@@ -50,7 +50,7 @@ export const PolicyModals: React.FC<PolicyModalsProps> = ({ modalType, onClose }
           content: (
             <div className="space-y-4">
               <p>
-                Your privacy is paramount. This policy describes how <strong>zilomart</strong> handles your data when you visit zilomart.com or purchase digital products.
+                Your privacy is paramount. This policy describes how <strong>zilomart</strong> handles your data when you visit zilomart.shop or purchase digital products.
               </p>
               <h5 className="font-bold text-white text-sm">1. Data Collected</h5>
               <p>
@@ -82,7 +82,7 @@ export const PolicyModals: React.FC<PolicyModalsProps> = ({ modalType, onClose }
               </p>
               <h5 className="font-bold text-white text-sm">How to Request a Refund</h5>
               <p>
-                Simply send an email to <a href="mailto:support@zilomart.com" className="text-cyan-400 underline">support@zilomart.com</a> with your purchase email or Razorpay Payment ID. Our support team will initiate your refund within 24 hours back to your original payment method.
+                Simply send an email to <a href="mailto:support@zilomart.shop" className="text-cyan-400 underline">support@zilomart.shop</a> with your purchase email or Razorpay Payment ID. Our support team will initiate your refund within 24 hours back to your original payment method.
               </p>
             </div>
           ),

@@ -86,7 +86,7 @@ export default function App() {
             CapCut Pro Bundle — Offline Manual &amp; Links Reference
           </h1>
           <p className="text-sm font-semibold text-gray-700 mt-1">
-            Official Store: <span className="font-mono text-blue-700">zilomart.com</span>
+            Official Store: <span className="font-mono text-blue-700">zilomart.shop</span>
           </p>
           <p className="text-xs text-gray-500 mt-0.5">
             Document generated for offline reference. All Pro features unlocked without VPN.
@@ -136,7 +136,7 @@ export default function App() {
               Backed by our <strong>7-Day 100% Money-Back Guarantee</strong>. For assistance or link re-sending, contact support 24/7:
             </p>
             <p className="font-mono text-sm mt-1">
-              Email: <strong>support@zilomart.com</strong> | <strong>info@zilomart.com</strong>
+              Email: <strong>support@zilomart.shop</strong> | <strong>info@zilomart.shop</strong>
             </p>
           </section>
         </div>

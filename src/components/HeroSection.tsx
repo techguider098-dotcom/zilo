@@ -187,13 +187,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenCheckout }) => {
 
       {/* Main High-Conversion CTA Button */}
       <div className="w-full max-w-md my-4 flex flex-col items-center">
-        <button
-          onClick={onOpenCheckout}
-          className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-[#ff9900] via-[#ff7700] to-[#ff5500] hover:from-[#ffaa00] hover:to-[#ff6600] text-black font-black text-lg sm:text-xl tracking-wide uppercase shadow-[0_10px_35px_rgba(255,119,0,0.5)] transform active:scale-95 transition-all shimmer-effect cursor-pointer flex items-center justify-center gap-2"
+        <a
+          href="https://rzp.io/rzp/nQllqCJ"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-[#ff9900] via-[#ff7700] to-[#ff5500] hover:from-[#ffaa00] hover:to-[#ff6600] text-black font-black text-lg sm:text-xl tracking-wide uppercase shadow-[0_10px_35px_rgba(255,119,0,0.5)] transform active:scale-95 transition-all shimmer-effect cursor-pointer flex items-center justify-center gap-2 text-center"
         >
           <Zap className="w-6 h-6 fill-black" />
           <span>Get Now ₹299 | Lifetime</span>
-        </button>
+        </a>
         <span className="text-xs text-amber-300/90 font-medium mt-2">
           instant download link on email
         </span>

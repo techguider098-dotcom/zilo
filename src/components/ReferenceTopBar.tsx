@@ -24,7 +24,7 @@ export const ReferenceTopBar: React.FC<ReferenceTopBarProps> = ({
             <div className="flex flex-col">
               <div className="flex items-center gap-1.5">
                 <span className="text-base sm:text-lg font-black tracking-tight text-white lowercase">
-                  zilo<span className="text-cyan-400">mart</span>
+                  zilo<span className="text-cyan-400">mart</span><span className="text-xs text-cyan-300/80 font-bold">.shop</span>
                 </span>
                 <span className="hidden sm:inline-flex items-center gap-1 px-1.5 py-0.2 rounded-full bg-cyan-950 border border-cyan-500/30 text-[10px] text-cyan-300 font-bold uppercase tracking-wider">
                   <ShieldCheck className="w-3 h-3 text-emerald-400" />
@@ -46,13 +46,15 @@ export const ReferenceTopBar: React.FC<ReferenceTopBarProps> = ({
             <span>PDF Guide</span>
           </button>
 
-          <button
-            onClick={onOpenCheckout}
+          <a
+            href="https://rzp.io/rzp/nQllqCJ"
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex items-center gap-1 px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-black font-extrabold text-xs transition-all shadow-md active:scale-95 cursor-pointer"
           >
             <Zap className="w-3.5 h-3.5 fill-black" />
             <span>Get Link ₹299</span>
-          </button>
+          </a>
         </div>
       </div>
     </header>

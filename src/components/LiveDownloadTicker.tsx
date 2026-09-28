@@ -171,9 +171,11 @@ export const LiveDownloadTicker: React.FC<LiveDownloadTickerProps> = ({ onOpenCh
               const isTestimonial = item.type === 'testimonial';
 
               return (
-                <div
+                <a
                   key={`${item.id}-${index}`}
-                  onClick={onOpenCheckout}
+                  href="https://rzp.io/rzp/nQllqCJ"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-2.5 px-3 py-1.5 rounded-xl bg-[#111322] hover:bg-[#181a30] border border-slate-800 hover:border-cyan-500/40 text-slate-300 transition-all cursor-pointer shadow-sm group shrink-0"
                 >
                   {/* Platform Icon & Status Badge */}
@@ -221,7 +223,7 @@ export const LiveDownloadTicker: React.FC<LiveDownloadTickerProps> = ({ onOpenCh
                   <span className="text-[10px] text-slate-500 shrink-0 font-mono">
                     {item.timeAgo}
                   </span>
-                </div>
+                </a>
               );
             })}
           </div>

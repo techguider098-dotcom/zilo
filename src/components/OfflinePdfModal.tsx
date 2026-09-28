@@ -21,7 +21,7 @@ interface OfflinePdfModalProps {
 
 export const OfflinePdfModal: React.FC<OfflinePdfModalProps> = ({ isOpen, onClose }) => {
   const [copiedLinks, setCopiedLinks] = useState(false);
-  const targetUrl = 'https://zilomart.com';
+  const targetUrl = 'https://zilomart.shop';
 
   if (!isOpen) return null;
 
@@ -32,14 +32,15 @@ export const OfflinePdfModal: React.FC<OfflinePdfModalProps> = ({ isOpen, onClos
   const handleDownloadTextGuide = () => {
     const textContent = `================================================================================
 CAPCUT PRO - WORKS WITHOUT VPN (OFFLINE REFERENCE GUIDE & LINKS)
-Official Store: Zilomart (zilomart.com)
+Official Store: Zilomart (zilomart.shop)
 Date: ${new Date().toLocaleDateString()}
-Support: support@zilomart.com | info@zilomart.com
+Support: support@zilomart.shop | info@zilomart.shop
 ================================================================================
 
 1. PRODUCT OVERVIEW & PRICING:
-   - Provider: Zilomart
+   - Provider: Zilomart (zilomart.shop)
    - Price: ₹299/- One Time Payment (Regular: ₹6,999)
+   - Instant Razorpay Order Link: https://rzp.io/rzp/nQllqCJ
    - Guarantee: 7-Day Money Back Guarantee (100% Risk Free)
    - Compatibility: Windows PC, Android, macOS
 
@@ -80,7 +81,7 @@ Support: support@zilomart.com | info@zilomart.com
    A: There is no question of not getting Download link 100% Everyone will get the link. You should check all folders Spam/Promotion/Updates.
 
    Q: What are your Support Channel?
-   A: For After sale support, You can reach us by email support@zilomart.com or info@zilomart.com.
+   A: For After sale support, You can reach us by email support@zilomart.shop or info@zilomart.shop.
 
    Q: What is the validity of Download link?
    A: It is for lifetime you can download it for unlimited time.
@@ -102,11 +103,12 @@ Support: support@zilomart.com | info@zilomart.com
 
   const handleCopyLinks = () => {
     const text = `CapCut Pro Offline Links Directory (Zilomart):
+Store: https://zilomart.shop
 Windows Download: https://drive.google.com/drive/folders/1CapCut-Pro-Windows-VIP-Mirror
 Android Download: https://drive.google.com/drive/folders/1CapCut-Pro-Android-VIP-Mirror
 Mac Download: https://drive.google.com/drive/folders/1CapCut-Pro-MacOS-VIP-Mirror
 Templates Drive: https://drive.google.com/drive/folders/1CapCut-Reels-Assets-Drive-VIP
-Support: support@zilomart.com`;
+Support: support@zilomart.shop`;
 
     navigator.clipboard.writeText(text);
     setCopiedLinks(true);
@@ -188,7 +190,7 @@ Support: support@zilomart.com`;
               </h2>
               <div className="flex items-center gap-1.5 text-slate-300 mt-1">
                 <span>Official Store:</span>
-                <span className="text-cyan-400 font-bold">zilomart.com</span>
+                <span className="text-cyan-400 font-bold">zilomart.shop</span>
               </div>
             </div>
 
@@ -218,6 +220,16 @@ Support: support@zilomart.com`;
                 <span className="text-slate-400 block text-[11px]">Guarantee</span>
                 <span className="text-emerald-400 font-bold text-sm">7-Day Money Back</span>
               </div>
+            </div>
+            <div className="mt-2.5">
+              <a
+                href="https://rzp.io/rzp/nQllqCJ"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-2 px-3 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 text-black font-extrabold text-xs flex items-center justify-center gap-1.5 shadow-md hover:brightness-110 transition-all text-center"
+              >
+                <span>Instant Payment Link: https://rzp.io/rzp/nQllqCJ</span>
+              </a>
             </div>
           </div>
 
@@ -327,15 +339,15 @@ Support: support@zilomart.com`;
               </p>
             </div>
             <div className="text-left sm:text-right font-mono text-cyan-400 text-xs">
-              <div>Email: <a href="mailto:support@zilomart.com" className="underline">support@zilomart.com</a></div>
-              <div>Backup: <a href="mailto:info@zilomart.com" className="underline">info@zilomart.com</a></div>
+              <div>Email: <a href="mailto:support@zilomart.shop" className="underline">support@zilomart.shop</a></div>
+              <div>Backup: <a href="mailto:info@zilomart.shop" className="underline">info@zilomart.shop</a></div>
             </div>
           </div>
         </div>
 
         {/* Footer */}
         <div className="px-6 py-3 bg-[#111322] border-t border-slate-800 flex items-center justify-between text-[11px] text-slate-500 shrink-0">
-          <span>&copy; 2026 Zilomart · zilomart.com</span>
+          <span>&copy; 2026 Zilomart · zilomart.shop</span>
           <button
             onClick={onClose}
             className="px-4 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-white font-medium"

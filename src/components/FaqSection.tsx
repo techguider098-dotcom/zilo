@@ -31,7 +31,7 @@ const FAQ_DATA: FaqItem[] = [
     id: '5',
     question: 'What are your Support Channel?',
     answer:
-      'For After sale support, You can reach us by email support@zilomart.com or info@zilomart.com',
+      'For After sale support, You can reach us by email support@zilomart.shop or info@zilomart.shop',
   },
   {
     id: '6',
@@ -96,19 +96,19 @@ export const FaqSection: React.FC = () => {
             {faq.id === '5' && (
               <div className="mt-3 pt-3 border-t border-slate-800 flex items-center gap-2">
                 <a
-                  href="mailto:support@zilomart.com"
+                  href="mailto:support@zilomart.shop"
                   className="inline-flex items-center gap-1.5 text-xs text-cyan-400 hover:text-cyan-300 font-semibold"
                 >
                   <Mail className="w-3.5 h-3.5" />
-                  support@zilomart.com
+                  support@zilomart.shop
                 </a>
                 <span className="text-slate-600">·</span>
                 <a
-                  href="mailto:info@zilomart.com"
+                  href="mailto:info@zilomart.shop"
                   className="inline-flex items-center gap-1.5 text-xs text-cyan-400 hover:text-cyan-300 font-semibold"
                 >
                   <Mail className="w-3.5 h-3.5" />
-                  info@zilomart.com
+                  info@zilomart.shop
                 </a>
               </div>
             )}

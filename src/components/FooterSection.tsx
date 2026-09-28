@@ -51,11 +51,11 @@ export const FooterSection: React.FC<FooterSectionProps> = ({ onOpenModal }) => 
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 text-xs">
             <span className="font-bold text-white">Contact:</span>
             <a
-              href="mailto:support@zilomart.com"
+              href="mailto:support@zilomart.shop"
               className="text-cyan-400 hover:text-cyan-300 font-mono flex items-center gap-1.5 transition-colors"
             >
               <Mail className="w-3.5 h-3.5" />
-              Email - support@zilomart.com
+              Email - support@zilomart.shop
             </a>
           </div>
         </div>
@@ -68,7 +68,7 @@ export const FooterSection: React.FC<FooterSectionProps> = ({ onOpenModal }) => 
               About Zilomart
             </h5>
             <p className="text-slate-400 leading-relaxed text-xs">
-              Zilomart is a premier digital solutions and software store dedicated to delivering verified, high-performance creative tools that empower creators and businesses. Since 2012, we have been committed to providing premium digital products, templates, and utilities tailored to the evolving needs of content creators, video editors, and digital agencies across diverse industries. Our mission is to accelerate productivity with reliable, accessible technology and instant delivery.
+              Zilomart (zilomart.shop) is a premier digital solutions and software store dedicated to delivering verified, high-performance creative tools that empower creators and businesses. Since 2012, we have been committed to providing premium digital products, templates, and utilities tailored to the evolving needs of content creators, video editors, and digital agencies across diverse industries. Our mission is to accelerate productivity with reliable, accessible technology and instant delivery.
             </p>
           </div>
 
@@ -82,13 +82,13 @@ export const FooterSection: React.FC<FooterSectionProps> = ({ onOpenModal }) => 
             </p>
             <div className="space-y-1 font-mono text-cyan-400">
               <div>
-                <a href="mailto:support@zilomart.com" className="hover:underline">
-                  support@zilomart.com
+                <a href="mailto:support@zilomart.shop" className="hover:underline">
+                  support@zilomart.shop
                 </a>
               </div>
               <div>
-                <a href="mailto:info@zilomart.com" className="hover:underline text-slate-300">
-                  info@zilomart.com
+                <a href="mailto:info@zilomart.shop" className="hover:underline text-slate-300">
+                  info@zilomart.shop
                 </a>
               </div>
             </div>

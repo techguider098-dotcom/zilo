@@ -31,13 +31,15 @@ export const MobileStickyBar: React.FC<MobileStickyBarProps> = ({
           <FileDown className="w-4 h-4 text-cyan-400" />
         </button>
 
-        <button
-          onClick={onOpenCheckout}
+        <a
+          href="https://rzp.io/rzp/nQllqCJ"
+          target="_blank"
+          rel="noopener noreferrer"
           className="py-2 px-4 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 text-black font-extrabold text-xs uppercase tracking-wider flex items-center gap-1.5 shadow-md active:scale-95 transition-transform"
         >
           <Zap className="w-3.5 h-3.5 fill-black" />
           <span>Get Now ₹299</span>
-        </button>
+        </a>
       </div>
     </div>
   );

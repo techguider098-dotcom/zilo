@@ -42,8 +42,9 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
     setIsProcessing(true);
     setTimeout(() => {
       setIsProcessing(false);
+      window.open('https://rzp.io/rzp/nQllqCJ', '_blank');
       setIsSuccess(true);
-    }, 1200);
+    }, 800);
   };
 
   const handleCopyKey = () => {
@@ -183,6 +184,16 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                 </>
               )}
             </button>
+
+            <a
+              href="https://rzp.io/rzp/nQllqCJ"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full py-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-cyan-300 font-bold text-xs flex items-center justify-center gap-1.5 border border-cyan-500/30 transition-all text-center"
+            >
+              <span>Direct 1-Click Razorpay Payment (rzp.io)</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </a>
 
             {/* Guarantee footer note */}
             <div className="text-center text-[10px] text-slate-400 flex items-center justify-center gap-1.5">

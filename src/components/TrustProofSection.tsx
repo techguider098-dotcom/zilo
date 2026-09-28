@@ -74,13 +74,15 @@ export const TrustProofSection: React.FC<TrustProofSectionProps> = ({ onOpenChec
 
       {/* Big CTA Button */}
       <div className="w-full max-w-md my-4 flex flex-col items-center">
-        <button
-          onClick={onOpenCheckout}
-          className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-[#00b4d8] to-[#0077b6] hover:from-[#0096c7] hover:to-[#023e8a] text-white font-black text-lg sm:text-xl tracking-wide uppercase shadow-[0_10px_35px_rgba(0,180,216,0.45)] transform active:scale-95 transition-all shimmer-effect cursor-pointer flex items-center justify-center gap-2"
+        <a
+          href="https://rzp.io/rzp/nQllqCJ"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-[#00b4d8] to-[#0077b6] hover:from-[#0096c7] hover:to-[#023e8a] text-white font-black text-lg sm:text-xl tracking-wide uppercase shadow-[0_10px_35px_rgba(0,180,216,0.45)] transform active:scale-95 transition-all shimmer-effect cursor-pointer flex items-center justify-center gap-2 text-center"
         >
           <span>Get Download Link Now</span>
           <ArrowRight className="w-5 h-5" />
-        </button>
+        </a>
 
         <span className="text-xs text-slate-300 font-semibold tracking-wider mt-2 flex items-center gap-2">
           <span>Meta Verified</span>
