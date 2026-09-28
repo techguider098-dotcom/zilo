@@ -1,0 +1,6 @@
+{
+  "name": "CapCut Pro - Works Without VPN Clone",
+  "description": "Responsive clone of thebsender.com/cap with full offline reference PDF guide and instant download access.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
