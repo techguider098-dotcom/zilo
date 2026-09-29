@@ -53,7 +53,7 @@ export const ReferenceTopBar: React.FC<ReferenceTopBarProps> = ({
             className="flex items-center gap-1 px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-black font-extrabold text-xs transition-all shadow-md active:scale-95 cursor-pointer"
           >
             <Zap className="w-3.5 h-3.5 fill-black" />
-            <span>Get Link ₹299</span>
+            <span>Get Bundle ₹99</span>
           </a>
         </div>
       </div>

@@ -10,7 +10,7 @@ export const TrustProofSection: React.FC<TrustProofSectionProps> = ({ onOpenChec
     <section className="py-12 px-4 sm:px-6 max-w-4xl mx-auto flex flex-col items-center text-center">
       {/* Heading */}
       <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-white max-w-2xl leading-snug mb-6">
-        Trusted by over <span className="text-cyan-400">25,000 YouTubers</span>, Start pro level editing from Day-1.
+        Trusted by over <span className="text-amber-400">25,000+ Indian Sellers</span>, Start scaling your store from Day-1.
       </h3>
 
       {/* Razorpay Trust Box Card */}

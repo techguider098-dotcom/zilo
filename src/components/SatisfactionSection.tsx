@@ -38,12 +38,12 @@ export const SatisfactionSection: React.FC = () => {
 
       {/* Main Headline */}
       <h3 className="text-2xl sm:text-3xl md:text-4xl font-black text-amber-300 max-w-xl tracking-tight leading-tight">
-        100% Satisfaction and <br className="hidden sm:inline" />
-        <span className="text-white">Professional Work.</span>
+        100% Satisfaction &amp; <br className="hidden sm:inline" />
+        <span className="text-white">Verified E-Com Blueprints.</span>
       </h3>
 
       <p className="text-xs sm:text-sm text-slate-300 max-w-lg mt-2">
-        Engineered specifically for editors requiring uninterrupted rendering speed, zero export watermarks, and immediate offline functionality without VPN barriers.
+        Curated specifically for Indian dropshippers &amp; e-commerce entrepreneurs seeking direct factory pricing, zero MOQ barriers, high-ROAS video ad templates, and immediate Google Drive access.
       </p>
     </section>
   );

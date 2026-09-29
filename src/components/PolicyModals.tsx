@@ -21,11 +21,11 @@ export const PolicyModals: React.FC<PolicyModalsProps> = ({ modalType, onClose }
           content: (
             <div className="space-y-4">
               <p>
-                Welcome to <strong>zilomart</strong> (zilomart.shop). By accessing or purchasing our CapCut Pro bundle, you agree to comply with and be bound by the following terms and conditions.
+                Welcome to <strong>zilomart</strong> (zilomart.shop). By accessing or purchasing our E-Commerce &amp; Dropshipping bundle, you agree to comply with and be bound by the following terms and conditions.
               </p>
               <h5 className="font-bold text-white text-sm">1. License &amp; Usage</h5>
               <p>
-                Purchasing gives you a personal, perpetual, lifetime digital access right to download and use the provided software packages, project templates, presets, and instructional tutorials. You may use created video outputs for personal, client, and commercial video creation without royalties.
+                Purchasing gives you a personal, perpetual, lifetime digital access right to download and use the provided Shopify themes, winning product spreadsheets, supplier directory, and marketing ad creatives. You may use them to launch, scale, and manage your online stores without royalties.
               </p>
               <h5 className="font-bold text-white text-sm">2. Delivery Method</h5>
               <p>
@@ -78,7 +78,7 @@ export const PolicyModals: React.FC<PolicyModalsProps> = ({ modalType, onClose }
                 100% Money Back Guarantee — No Questions Asked
               </div>
               <p>
-                We believe wholeheartedly in the quality and performance of our CapCut Pro bundle. If for any reason the software or assets do not work on your compatible device, you are entitled to a full refund within 7 days of purchase.
+                We believe wholeheartedly in the quality and value of our E-Commerce Super Bundle. If for any reason the provided themes or resources do not match what was described, you are entitled to a full refund within 7 days of purchase.
               </p>
               <h5 className="font-bold text-white text-sm">How to Request a Refund</h5>
               <p>
@@ -95,14 +95,14 @@ export const PolicyModals: React.FC<PolicyModalsProps> = ({ modalType, onClose }
           content: (
             <div className="space-y-4">
               <p>
-                <strong>zilomart</strong> operates as an independent software utility provider and digital asset curator since 2012.
+                <strong>zilomart</strong> operates as an independent digital asset curator and e-commerce solutions provider.
               </p>
-              <h5 className="font-bold text-white text-sm">Trademark Notice</h5>
+              <h5 className="font-bold text-white text-sm">Notice</h5>
               <p>
-                CapCut is a trademark and copyright of ByteDance Ltd. zilomart is not officially affiliated with, sponsored by, or endorsed by ByteDance Ltd.
+                Shopify, Facebook, Instagram, Shiprocket, and other referenced third-party trademarks are property of their respective owners. Zilomart is not officially affiliated with or endorsed by Shopify Inc. or Meta Platforms Inc.
               </p>
               <p>
-                All references to CapCut Pro, Windows, Android, and Apple are for functional compatibility and identification purposes only. The bundle provides custom pre-configured offline setup scripts, video tutorials, and curated creative assets (SFX, LUTs, and templates).
+                The bundle provides curated digital templates, product research spreadsheets, manufacturer supplier directories, and educational blueprints designed to assist entrepreneurs in building online stores.
               </p>
             </div>
           ),

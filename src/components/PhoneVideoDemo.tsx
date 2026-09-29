@@ -1,320 +1,460 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { 
-  Play, 
-  Pause, 
-  Plus, 
-  Scissors, 
-  Wand2, 
-  Type, 
-  Sparkles, 
-  Video, 
-  Sliders, 
-  Camera, 
-  Share2, 
+  TrendingUp, 
+  Store, 
+  Truck, 
+  Megaphone, 
+  Star, 
   Check, 
-  Shield, 
-  RefreshCw,
-  FolderOpen,
-  Volume2
+  Copy, 
+  ExternalLink, 
+  DollarSign, 
+  ShieldCheck, 
+  Flame,
+  ArrowRight,
+  Eye,
+  ShoppingBag,
+  Zap,
+  Percent
 } from 'lucide-react';
 
+interface WinningProduct {
+  id: string;
+  name: string;
+  category: string;
+  sourcePrice: number;
+  sellPrice: number;
+  profit: number;
+  orders: string;
+  supplierLocation: string;
+  adAngle: string;
+}
+
+const WINNING_PRODUCTS: WinningProduct[] = [
+  {
+    id: 'wp1',
+    name: 'Sunset RGB Projection Atmosphere Lamp',
+    category: 'Home & Room Decor',
+    sourcePrice: 140,
+    sellPrice: 799,
+    profit: 659,
+    orders: '14,200+ sold',
+    supplierLocation: 'Delhi / Surat Hub',
+    adAngle: 'Instagram aesthetic transformation reel',
+  },
+  {
+    id: 'wp2',
+    name: 'Portable Mini Thermal Pocket Printer',
+    category: 'Gadgets & Students',
+    sourcePrice: 420,
+    sellPrice: 1499,
+    profit: 1079,
+    orders: '9,800+ sold',
+    supplierLocation: 'Mumbai Electronic Market',
+    adAngle: 'Study notes & cute journaling TikTok hook',
+  },
+  {
+    id: 'wp3',
+    name: 'EMS Microcurrent Face Sculptor & Massager',
+    category: 'Beauty & Skincare',
+    sourcePrice: 190,
+    sellPrice: 999,
+    profit: 809,
+    orders: '22,400+ sold',
+    supplierLocation: 'Delhi Hub (COD Friendly)',
+    adAngle: 'Before/after 5-minute jawline contour demo',
+  },
+  {
+    id: 'wp4',
+    name: 'Anti-Theft Waterproof Crossbody Sling Bag',
+    category: 'Fashion & Travel',
+    sourcePrice: 210,
+    sellPrice: 899,
+    profit: 689,
+    orders: '11,100+ sold',
+    supplierLocation: 'Surat / Ahmedabad',
+    adAngle: 'Water-splash + knife scratch resistance test',
+  },
+];
+
+const SUPPLIERS = [
+  {
+    name: 'Shree Balaji Apparels & Textiles',
+    city: 'Surat, Gujarat',
+    category: 'Ethnic & Western Wear, Co-ord Sets',
+    moq: 'Zero MOQ (1 pc allowed)',
+    cod: 'Yes (Via Shiprocket / NimbusPost)',
+    verified: true,
+  },
+  {
+    name: 'NexGen Gadgets & Import Hub',
+    city: 'Karol Bagh, New Delhi',
+    category: 'Smartwatches, TWS Earbuds, Phone Accessories',
+    moq: 'No minimum order',
+    cod: 'Full Support (Same-day dispatch)',
+    verified: true,
+  },
+  {
+    name: 'Royal Heritage Lifestyle & Decor',
+    city: 'Jaipur, Rajasthan',
+    category: 'Handicrafts, Bedding, Resin Art, Jewelry',
+    moq: 'Dropship Friendly',
+    cod: 'Direct courier integration',
+    verified: true,
+  },
+  {
+    name: 'Apex Kitchenware & Storage Solutions',
+    city: 'Bhiwandi / Mumbai, Maharashtra',
+    category: 'Kitchen gadgets, silicone storage, organizers',
+    moq: '1 piece dropship',
+    cod: 'Supported on all pin codes',
+    verified: true,
+  },
+];
+
 export const PhoneVideoDemo: React.FC = () => {
-  const [isPlaying, setIsPlaying] = useState(true);
-  const [activeTab, setActiveTab] = useState<'home' | 'editor'>('editor');
-  const [currentTime, setCurrentTime] = useState(3.4);
-  const [isExporting, setIsExporting] = useState(false);
-  const [exportComplete, setExportComplete] = useState(false);
+  const [activeTab, setActiveTab] = useState<'products' | 'store' | 'suppliers' | 'ads'>('products');
+  const [selectedProduct, setSelectedProduct] = useState<WinningProduct>(WINNING_PRODUCTS[0]);
+  const [copiedSupplier, setCopiedSupplier] = useState<string | null>(null);
 
-  // Playhead scrubber simulation
-  useEffect(() => {
-    let interval: any;
-    if (isPlaying && activeTab === 'editor') {
-      interval = setInterval(() => {
-        setCurrentTime((prev) => (prev >= 12.0 ? 0 : Number((prev + 0.1).toFixed(1))));
-      }, 100);
-    }
-    return () => clearInterval(interval);
-  }, [isPlaying, activeTab]);
-
-  const handleExportSim = () => {
-    setIsExporting(true);
-    setExportComplete(false);
-    setTimeout(() => {
-      setIsExporting(false);
-      setExportComplete(true);
-      setTimeout(() => setExportComplete(false), 4000);
-    }, 1500);
+  const handleCopy = (text: string, id: string) => {
+    navigator.clipboard.writeText(text);
+    setCopiedSupplier(id);
+    setTimeout(() => setCopiedSupplier(null), 2000);
   };
 
   return (
-    <section className="py-12 px-4 sm:px-6 max-w-4xl mx-auto flex flex-col items-center text-center">
+    <section className="py-12 px-4 sm:px-6 max-w-5xl mx-auto flex flex-col items-center text-center">
       {/* Section Heading */}
-      <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-white max-w-xl leading-snug mb-3">
-        Watch The Video. <br />
-        <span className="text-cyan-300">All features are working perfectly,</span> and the app is running smoothly.
-      </h3>
-
-      <p className="text-sm text-slate-400 max-w-md mb-8">
-        Tested on Indian networks (Jio, Airtel, Vi, BSNL) and Global ISPs. Fully unlocked Pro library with zero VPN or proxy requirements.
-      </p>
-
-      {/* Screen Mode Switcher */}
-      <div className="flex items-center gap-2 p-1.5 bg-[#141628] rounded-xl border border-slate-800 mb-6 text-xs font-semibold">
-        <button
-          onClick={() => setActiveTab('editor')}
-          className={`px-4 py-2 rounded-lg transition-all flex items-center gap-1.5 ${
-            activeTab === 'editor'
-              ? 'bg-cyan-500 text-black shadow-md font-bold'
-              : 'text-slate-400 hover:text-white'
-          }`}
-        >
-          <Play className="w-3.5 h-3.5 fill-current" />
-          Live Editor Demo
-        </button>
-        <button
-          onClick={() => setActiveTab('home')}
-          className={`px-4 py-2 rounded-lg transition-all flex items-center gap-1.5 ${
-            activeTab === 'home'
-              ? 'bg-cyan-500 text-black shadow-md font-bold'
-              : 'text-slate-400 hover:text-white'
-          }`}
-        >
-          <FolderOpen className="w-3.5 h-3.5" />
-          CapCut Home Screen
-        </button>
+      <div className="mb-8">
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-950/80 border border-cyan-500/40 text-cyan-300 text-xs font-bold uppercase tracking-wider mb-2">
+          <Flame className="w-3.5 h-3.5 text-amber-400" />
+          Inside The E-Com Bundle
+        </div>
+        <h3 className="text-xl sm:text-3xl md:text-4xl font-black text-white max-w-2xl leading-tight">
+          Inspect What You Get For Just <span className="text-amber-400">₹99</span>
+        </h3>
+        <p className="text-xs sm:text-sm text-slate-400 max-w-lg mt-2 mx-auto">
+          Explore real winning products, high-converting store previews, verified zero-MOQ supplier contacts, and high-ROAS marketing ad scripts.
+        </p>
       </div>
 
-      {/* Realistic Smartphone Mockup */}
-      <div className="relative w-full max-w-[320px] sm:max-w-[340px] aspect-[9/18.5] bg-black rounded-[44px] p-3 shadow-[0_25px_60px_-15px_rgba(6,182,212,0.3)] border-4 border-slate-700/80 ring-1 ring-cyan-500/30">
-        {/* Dynamic Island / Speaker punch hole */}
-        <div className="absolute top-4 left-1/2 -translate-x-1/2 w-28 h-4.5 bg-black rounded-full z-30 flex items-center justify-end px-3">
-          <div className="w-2.5 h-2.5 rounded-full bg-[#151528] border border-slate-700" />
-        </div>
+      {/* 4 Interactive Showcase Tabs */}
+      <div className="flex flex-wrap items-center justify-center gap-2 mb-6">
+        {[
+          { id: 'products', label: '1,000+ Winning Products', icon: TrendingUp },
+          { id: 'store', label: 'Shopify Store Preview', icon: Store },
+          { id: 'suppliers', label: 'Indian Supplier Directory', icon: Truck },
+          { id: 'ads', label: 'High-ROAS Ad Creatives', icon: Megaphone },
+        ].map((tab) => {
+          const Icon = tab.icon;
+          const isActive = activeTab === tab.id;
+          return (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id as any)}
+              className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+                isActive
+                  ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-black shadow-lg shadow-amber-500/30 font-black'
+                  : 'bg-slate-900/90 text-slate-300 hover:text-white border border-slate-800 hover:border-slate-700'
+              }`}
+            >
+              <Icon className="w-4 h-4" />
+              <span>{tab.label}</span>
+            </button>
+          );
+        })}
+      </div>
 
-        {/* Outer Phone Screen Canvas */}
-        <div className="w-full h-full rounded-[36px] bg-[#10121d] overflow-hidden flex flex-col justify-between text-left relative border border-slate-800 select-none">
-          {/* Status Bar */}
-          <div className="h-8 pt-1.5 px-6 flex items-center justify-between text-[11px] font-semibold text-slate-400 border-b border-slate-800/40">
-            <span>9:41</span>
-            <div className="flex items-center gap-1.5 text-cyan-400 text-[10px]">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
-              <span className="text-emerald-400 font-bold">VPN OFF</span>
-              <span>5G</span>
-            </div>
-          </div>
-
-          {/* VIEW 1: HOME SCREEN (Exact match with screenshot) */}
-          {activeTab === 'home' && (
-            <div className="flex-1 p-4 flex flex-col justify-between overflow-y-auto">
+      {/* Main Interactive Showcase Card */}
+      <div className="w-full max-w-4xl p-5 sm:p-7 rounded-3xl bg-[#0e101d] border border-cyan-500/30 shadow-2xl text-left">
+        {/* TAB 1: 1,000+ WINNING PRODUCTS SPY */}
+        {activeTab === 'products' && (
+          <div className="space-y-6">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
               <div>
-                {/* Header with Pro badge */}
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center gap-2">
-                    <span className="text-lg font-black text-white">CapCut</span>
-                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-gradient-to-r from-pink-500 to-rose-600 text-white">
-                      PRO UNLOCKED
-                    </span>
-                  </div>
-                  <div className="w-7 h-7 rounded-full bg-slate-800 flex items-center justify-center text-slate-300 text-xs">
-                    ⚙️
-                  </div>
-                </div>
-
-                {/* Get started card */}
-                <div className="p-3.5 rounded-2xl bg-gradient-to-r from-slate-900 to-slate-800 border border-slate-700/80 mb-4 shadow-sm">
-                  <span className="text-xs font-bold text-white block">Get started</span>
-                  <span className="text-[11px] text-slate-400 block mt-0.5">
-                    Start creating with unlimited Pro effects & fonts
-                  </span>
-                </div>
-
-                {/* + New Project Big Button */}
-                <button
-                  onClick={() => setActiveTab('editor')}
-                  className="w-full py-4 px-4 rounded-2xl bg-gradient-to-r from-cyan-600 to-blue-600 text-white font-extrabold flex items-center justify-center gap-2 shadow-lg shadow-cyan-900/30 hover:brightness-110 active:scale-98 transition-all mb-5 cursor-pointer"
-                >
-                  <Plus className="w-5 h-5 bg-white/20 rounded-full p-0.5" />
-                  <span>New project</span>
-                </button>
-
-                {/* 6 Grid Icons exactly like screenshot */}
-                <div className="grid grid-cols-4 gap-2 text-center text-[10px] text-slate-300 font-medium">
-                  <div className="flex flex-col items-center gap-1.5 p-2 rounded-xl bg-slate-800/40 border border-slate-800">
-                    <Wand2 className="w-5 h-5 text-pink-400" />
-                    <span>AutoCut</span>
-                  </div>
-                  <div className="flex flex-col items-center gap-1.5 p-2 rounded-xl bg-slate-800/40 border border-slate-800">
-                    <Camera className="w-5 h-5 text-cyan-400" />
-                    <span>Camera</span>
-                  </div>
-                  <div className="flex flex-col items-center gap-1.5 p-2 rounded-xl bg-slate-800/40 border border-slate-800">
-                    <Sparkles className="w-5 h-5 text-amber-400" />
-                    <span>AI Prompter</span>
-                  </div>
-                  <div className="flex flex-col items-center gap-1.5 p-2 rounded-xl bg-slate-800/40 border border-slate-800">
-                    <Sliders className="w-5 h-5 text-emerald-400" />
-                    <span>Retouch</span>
-                  </div>
-                  <div className="flex flex-col items-center gap-1.5 p-2 rounded-xl bg-slate-800/40 border border-slate-800">
-                    <Video className="w-5 h-5 text-purple-400" />
-                    <span>Shorts</span>
-                  </div>
-                  <div className="flex flex-col items-center gap-1.5 p-2 rounded-xl bg-slate-800/40 border border-slate-800">
-                    <Type className="w-5 h-5 text-sky-400" />
-                    <span>Subtitles</span>
-                  </div>
-                  <div className="flex flex-col items-center gap-1.5 p-2 rounded-xl bg-slate-800/40 border border-slate-800">
-                    <Share2 className="w-5 h-5 text-rose-400" />
-                    <span>Script AI</span>
-                  </div>
-                  <div className="flex flex-col items-center gap-1.5 p-2 rounded-xl bg-slate-800/40 border border-slate-800">
-                    <Scissors className="w-5 h-5 text-yellow-400" />
-                    <span>BG Remove</span>
-                  </div>
-                </div>
+                <span className="text-base sm:text-lg font-black text-white flex items-center gap-2">
+                  <Flame className="w-5 h-5 text-amber-400" />
+                  Live Trending Dropshipping Products Database
+                </span>
+                <span className="text-xs text-slate-400">
+                  Researched with Facebook Ad Library, TikTok Creative Center &amp; Indian market demand.
+                </span>
               </div>
-
-              {/* Bottom Nav Bar */}
-              <div className="pt-3 border-t border-slate-800 flex items-center justify-around text-[10px] text-slate-400">
-                <span className="text-cyan-400 font-bold">Edit</span>
-                <span>Templates</span>
-                <span>Tutorials</span>
-                <span>VIP Cloud</span>
-              </div>
+              <span className="px-2.5 py-1 rounded-lg bg-emerald-950 text-emerald-400 text-xs font-bold border border-emerald-500/30 shrink-0">
+                1,000+ Items In VIP Drive
+              </span>
             </div>
-          )}
 
-          {/* VIEW 2: LIVE VIDEO EDITOR IN ACTION */}
-          {activeTab === 'editor' && (
-            <div className="flex-1 flex flex-col justify-between bg-[#0e0f19]">
-              {/* Top Editor Bar */}
-              <div className="px-3 py-2 flex items-center justify-between bg-black/60 border-b border-slate-800 text-xs">
-                <button
-                  onClick={() => setActiveTab('home')}
-                  className="text-slate-400 hover:text-white text-[11px]"
+            {/* Product Cards Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {WINNING_PRODUCTS.map((prod) => (
+                <div
+                  key={prod.id}
+                  onClick={() => setSelectedProduct(prod)}
+                  className={`p-4 rounded-2xl border transition-all cursor-pointer ${
+                    selectedProduct.id === prod.id
+                      ? 'bg-cyan-950/40 border-cyan-400 shadow-lg'
+                      : 'bg-slate-900/80 border-slate-800 hover:border-slate-700'
+                  }`}
                 >
-                  ← Projects
-                </button>
-                <div className="flex items-center gap-1.5">
-                  <span className="px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 font-mono text-[10px] font-bold">
-                    4K · 60fps
-                  </span>
-                  <button
-                    onClick={handleExportSim}
-                    disabled={isExporting}
-                    className="px-2.5 py-1 rounded bg-cyan-500 text-black font-extrabold text-[11px] hover:bg-cyan-400 cursor-pointer active:scale-95 transition-all"
-                  >
-                    {isExporting ? 'Exporting...' : 'Export Pro'}
-                  </button>
-                </div>
-              </div>
-
-              {/* Video Preview Canvas */}
-              <div className="relative flex-1 bg-gradient-to-br from-indigo-950 via-slate-900 to-cyan-950 flex flex-col items-center justify-center p-3 overflow-hidden">
-                {/* Simulated dynamic video scene */}
-                <div className="w-full h-full rounded-xl bg-gradient-to-tr from-cyan-900/50 via-purple-900/40 to-slate-950 flex flex-col items-center justify-center relative p-3 border border-cyan-500/20">
-                  {/* Neon light simulation */}
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(6,182,212,0.25),transparent_60%)]" />
-
-                  {/* Dynamic motion text overlay in video */}
-                  <div className="relative z-10 text-center">
-                    <span className="text-[10px] uppercase tracking-widest text-cyan-400 font-bold bg-black/60 px-2 py-0.5 rounded-full border border-cyan-500/30">
-                      Auto-Captions [Active]
-                    </span>
-                    <h4 className="text-base font-black text-white mt-1 drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
-                      "Make Viral Reels in 60s"
-                    </h4>
-                    <span className="text-[11px] text-amber-300 font-semibold drop-shadow">
-                      ⚡ Smooth Optical Flow 60fps
+                  <div className="flex items-start justify-between gap-2">
+                    <div>
+                      <span className="text-[10px] uppercase font-bold text-amber-400 tracking-wider">
+                        {prod.category}
+                      </span>
+                      <h4 className="text-sm font-bold text-white mt-0.5">{prod.name}</h4>
+                    </div>
+                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-300 font-mono">
+                      {prod.orders}
                     </span>
                   </div>
 
-                  {/* Audio visualizer wave */}
-                  <div className="absolute bottom-2 flex items-center gap-0.5 h-6">
-                    {[12, 18, 24, 10, 20, 26, 14, 22, 16, 28, 12, 20, 15, 24].map((h, i) => (
-                      <span
-                        key={i}
-                        className={`w-1 bg-cyan-400/80 rounded-full transition-all duration-150 ${
-                          isPlaying ? 'animate-pulse' : 'opacity-40'
-                        }`}
-                        style={{ height: isPlaying ? `${(h * (i % 2 === 0 ? 1 : 0.8))}px` : '6px' }}
-                      />
-                    ))}
-                  </div>
-
-                  {/* Exporting toast overlay */}
-                  {isExporting && (
-                    <div className="absolute inset-0 bg-black/85 backdrop-blur-sm flex flex-col items-center justify-center z-20">
-                      <RefreshCw className="w-8 h-8 text-cyan-400 animate-spin mb-2" />
-                      <span className="text-xs font-bold text-white">Rendering 4K HDR...</span>
-                      <span className="text-[10px] text-cyan-300">No Watermark applied</span>
+                  {/* Financial Breakdown (Sourcing vs Selling) */}
+                  <div className="grid grid-cols-3 gap-2 my-3 p-2.5 rounded-xl bg-black/50 border border-slate-800/80 text-center">
+                    <div>
+                      <span className="text-[10px] text-slate-400 block">Sourcing</span>
+                      <span className="text-xs font-bold text-slate-200">₹{prod.sourcePrice}</span>
                     </div>
-                  )}
-
-                  {/* Export Complete Notification */}
-                  {exportComplete && (
-                    <div className="absolute inset-0 bg-emerald-950/90 backdrop-blur-sm flex flex-col items-center justify-center z-20 p-4 text-center">
-                      <div className="w-10 h-10 rounded-full bg-emerald-500/20 border border-emerald-400 flex items-center justify-center text-emerald-400 mb-2">
-                        <Check className="w-6 h-6" />
-                      </div>
-                      <span className="text-xs font-black text-white">Export Complete!</span>
-                      <span className="text-[10px] text-emerald-300 mt-1">Saved to gallery with 100% Pro quality</span>
+                    <div>
+                      <span className="text-[10px] text-slate-400 block">Selling</span>
+                      <span className="text-xs font-bold text-cyan-300">₹{prod.sellPrice}</span>
                     </div>
-                  )}
-                </div>
-              </div>
-
-              {/* Scrubber and Timeline Area */}
-              <div className="p-2.5 bg-black/90 border-t border-slate-800">
-                {/* Time and play controls */}
-                <div className="flex items-center justify-between text-[11px] font-mono text-slate-400 mb-1.5 px-1">
-                  <div className="flex items-center gap-2">
-                    <button
-                      onClick={() => setIsPlaying(!isPlaying)}
-                      className="w-6 h-6 rounded-full bg-cyan-500 text-black flex items-center justify-center hover:bg-cyan-400 active:scale-95"
-                    >
-                      {isPlaying ? <Pause className="w-3 h-3 fill-black" /> : <Play className="w-3 h-3 fill-black ml-0.5" />}
-                    </button>
-                    <span>00:0{Math.floor(currentTime)} / 00:15</span>
-                  </div>
-                  <span className="text-cyan-400 font-sans text-[10px] font-semibold flex items-center gap-1">
-                    <Shield className="w-3 h-3 text-emerald-400" />
-                    Pro Unlocked
-                  </span>
-                </div>
-
-                {/* Multi-track Video Timeline */}
-                <div className="space-y-1 relative py-1">
-                  {/* Scrubber Playhead Line */}
-                  <div
-                    className="absolute top-0 bottom-0 w-0.5 bg-white z-10 shadow-[0_0_8px_white]"
-                    style={{ left: `${(currentTime / 15) * 100}%` }}
-                  />
-
-                  {/* Track 1: Video clip track */}
-                  <div className="h-6 rounded bg-indigo-900/60 border border-indigo-500/40 flex items-center px-2 text-[9px] text-indigo-200 font-semibold overflow-hidden">
-                    <Video className="w-3 h-3 mr-1 text-cyan-300" /> Main Video (4K)
+                    <div>
+                      <span className="text-[10px] text-emerald-400 font-bold block">Net Margin</span>
+                      <span className="text-xs font-black text-emerald-400">+₹{prod.profit}</span>
+                    </div>
                   </div>
 
-                  {/* Track 2: Subtitle text track */}
-                  <div className="h-5 rounded bg-purple-900/60 border border-purple-500/40 flex items-center px-2 text-[9px] text-purple-200 font-semibold overflow-hidden">
-                    <Type className="w-3 h-3 mr-1 text-pink-300" /> Auto Subtitles
-                  </div>
-
-                  {/* Track 3: Audio waveform */}
-                  <div className="h-5 rounded bg-cyan-950/80 border border-cyan-500/30 flex items-center px-2 text-[9px] text-cyan-300 font-semibold overflow-hidden">
-                    <Volume2 className="w-3 h-3 mr-1 text-cyan-400" /> Trending Beat (No Copyright)
+                  <div className="flex items-center justify-between text-[11px] text-slate-400 pt-1">
+                    <span>Supplier: <strong className="text-slate-300">{prod.supplierLocation}</strong></span>
+                    <span className="text-amber-400 font-semibold flex items-center gap-1">
+                      <Percent className="w-3 h-3" /> {(prod.profit / prod.sourcePrice * 100).toFixed(0)}% ROI
+                    </span>
                   </div>
                 </div>
-              </div>
+              ))}
             </div>
-          )}
 
-          {/* Bottom Home Indicator Bar */}
-          <div className="h-5 flex items-center justify-center bg-black">
-            <div className="w-24 h-1 rounded-full bg-slate-600" />
+            <div className="p-3.5 rounded-xl bg-amber-950/30 border border-amber-500/30 flex items-center justify-between text-xs text-amber-200">
+              <span>All 1,000+ products include ready-to-run video ads, English/Hindi ad copy, and direct Indian supplier contact links.</span>
+              <a
+                href="https://rzp.io/rzp/nQllqCJ"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-3 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-black font-extrabold text-xs shrink-0"
+              >
+                Get Full List ₹99
+              </a>
+            </div>
           </div>
-        </div>
+        )}
+
+        {/* TAB 2: SHOPIFY STORE PREVIEW */}
+        {activeTab === 'store' && (
+          <div className="space-y-6">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
+              <div>
+                <span className="text-base sm:text-lg font-black text-white flex items-center gap-2">
+                  <Store className="w-5 h-5 text-cyan-400" />
+                  15+ Plug &amp; Play High-Converting Shopify Store Themes
+                </span>
+                <span className="text-xs text-slate-400">
+                  Pre-configured with sticky Buy Buttons, COD countdown timers, trust badges &amp; 0.8s load speed.
+                </span>
+              </div>
+              <span className="px-2.5 py-1 rounded-lg bg-cyan-950 text-cyan-400 text-xs font-bold border border-cyan-500/30 shrink-0">
+                Worth ₹15,000 Included
+              </span>
+            </div>
+
+            {/* Mobile Store Mockup Container */}
+            <div className="max-w-md mx-auto p-4 rounded-3xl bg-slate-950 border-2 border-slate-800 shadow-2xl">
+              {/* Fake Browser Top */}
+              <div className="flex items-center justify-between pb-3 border-b border-slate-800 text-[11px] text-slate-400 font-mono">
+                <span className="text-emerald-400 flex items-center gap-1">
+                  <ShieldCheck className="w-3.5 h-3.5" /> yourstore.com
+                </span>
+                <span className="text-[10px] bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded">
+                  Free Shipping India
+                </span>
+              </div>
+
+              {/* Product Showcase Inside Store */}
+              <div className="py-4 space-y-3">
+                <div className="h-44 rounded-2xl bg-gradient-to-tr from-slate-900 to-[#1e2338] border border-slate-800 flex items-center justify-center text-center p-4 relative overflow-hidden">
+                  <div className="w-20 h-20 rounded-full bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center">
+                    <ShoppingBag className="w-10 h-10 text-cyan-400" />
+                  </div>
+                  <div className="absolute top-3 left-3 px-2 py-0.5 rounded bg-rose-600 text-white font-black text-[10px] uppercase">
+                    50% OFF TODAY
+                  </div>
+                  <div className="absolute bottom-3 right-3 text-[10px] text-slate-400 bg-black/60 px-2 py-0.5 rounded">
+                    ⚡ 18 Sold in Last Hour
+                  </div>
+                </div>
+
+                <div>
+                  <h5 className="font-extrabold text-white text-sm">
+                    Luxury Glow Multi-Color Atmosphere Lamp
+                  </h5>
+                  <div className="flex items-center gap-2 mt-1">
+                    <span className="text-base font-black text-amber-400">₹799</span>
+                    <span className="text-xs text-slate-500 line-through">₹1,999</span>
+                    <span className="text-[10px] text-emerald-400 font-bold bg-emerald-950 px-1.5 py-0.5 rounded">
+                      SAVE ₹1,200
+                    </span>
+                  </div>
+                </div>
+
+                {/* Conversion Boosters */}
+                <div className="space-y-2 pt-2 border-t border-slate-800 text-xs">
+                  <button className="w-full py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-green-600 text-black font-black text-sm uppercase tracking-wide shadow-lg shadow-emerald-500/20 flex items-center justify-center gap-2">
+                    <span>Cash on Delivery / Order Now</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+
+                  <div className="grid grid-cols-2 gap-2 text-[10px] text-slate-400 text-center">
+                    <span className="p-1 rounded bg-slate-900 border border-slate-800">
+                      ✓ Free 3-Day Express Shipping
+                    </span>
+                    <span className="p-1 rounded bg-slate-900 border border-slate-800">
+                      ✓ 7-Day Easy Replacement
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* TAB 3: INDIAN SUPPLIER DIRECTORY */}
+        {activeTab === 'suppliers' && (
+          <div className="space-y-6">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
+              <div>
+                <span className="text-base sm:text-lg font-black text-white flex items-center gap-2">
+                  <Truck className="w-5 h-5 text-emerald-400" />
+                  Direct Verified Indian Suppliers Network
+                </span>
+                <span className="text-xs text-slate-400">
+                  Cut out expensive middlemen. Direct factory rates in Surat, Delhi, Mumbai, Tirupur, Jaipur.
+                </span>
+              </div>
+              <span className="px-2.5 py-1 rounded-lg bg-emerald-950 text-emerald-400 text-xs font-bold border border-emerald-500/30 shrink-0">
+                100+ Manufacturers
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+              {SUPPLIERS.map((sup, idx) => (
+                <div
+                  key={idx}
+                  className="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-emerald-500/40 transition-all space-y-2"
+                >
+                  <div className="flex items-start justify-between gap-2">
+                    <div>
+                      <h4 className="font-bold text-white text-sm">{sup.name}</h4>
+                      <span className="text-xs text-emerald-400 font-semibold">{sup.city}</span>
+                    </div>
+                    <span className="px-2 py-0.5 rounded-full bg-emerald-950/80 text-emerald-300 text-[10px] font-bold border border-emerald-500/30 flex items-center gap-1">
+                      <Check className="w-3 h-3 text-emerald-400" /> Verified
+                    </span>
+                  </div>
+
+                  <p className="text-xs text-slate-300">
+                    Category: <strong className="text-white">{sup.category}</strong>
+                  </p>
+
+                  <div className="grid grid-cols-2 gap-2 text-[11px] p-2 rounded-xl bg-black/40 border border-slate-800/80">
+                    <div>
+                      <span className="text-slate-500 block text-[10px]">Min Order:</span>
+                      <span className="font-bold text-slate-200">{sup.moq}</span>
+                    </div>
+                    <div>
+                      <span className="text-slate-500 block text-[10px]">COD Support:</span>
+                      <span className="font-bold text-emerald-400">{sup.cod}</span>
+                    </div>
+                  </div>
+
+                  <div className="pt-1 flex items-center justify-between">
+                    <span className="text-[11px] text-slate-400">WhatsApp &amp; Phone in VIP Drive</span>
+                    <button
+                      onClick={() => handleCopy(sup.name, `sup-${idx}`)}
+                      className="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-[11px] flex items-center gap-1"
+                    >
+                      {copiedSupplier === `sup-${idx}` ? <Check className="w-3 h-3 text-emerald-400" /> : <Copy className="w-3 h-3" />}
+                      {copiedSupplier === `sup-${idx}` ? 'Copied' : 'Copy'}
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* TAB 4: HIGH-ROAS AD CREATIVES & BLUEPRINTS */}
+        {activeTab === 'ads' && (
+          <div className="space-y-6">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
+              <div>
+                <span className="text-base sm:text-lg font-black text-white flex items-center gap-2">
+                  <Megaphone className="w-5 h-5 text-purple-400" />
+                  500+ Ready-To-Run Video Ad Templates &amp; Copy Vault
+                </span>
+                <span className="text-xs text-slate-400">
+                  Stop burning money on bad ads. Copy-paste formulas for Facebook, Instagram, Google Ads &amp; WhatsApp Marketing.
+                </span>
+              </div>
+              <span className="px-2.5 py-1 rounded-lg bg-purple-950 text-purple-400 text-xs font-bold border border-purple-500/30 shrink-0">
+                500+ Assets
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <div className="p-4 rounded-2xl bg-slate-900 border border-slate-800">
+                <span className="text-amber-400 font-bold text-xs uppercase block mb-1">Module 1</span>
+                <h5 className="font-extrabold text-white text-sm">3-Second Hook Formulas</h5>
+                <p className="text-xs text-slate-300 mt-1 leading-relaxed">
+                  50+ visual and audio hooks that stop Instagram &amp; Facebook scrolling immediately.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-slate-900 border border-slate-800">
+                <span className="text-cyan-400 font-bold text-xs uppercase block mb-1">Module 2</span>
+                <h5 className="font-extrabold text-white text-sm">RTO &amp; Fake COD Defense</h5>
+                <p className="text-xs text-slate-300 mt-1 leading-relaxed">
+                  WhatsApp automated OTP verification templates that reduce returns from 40% to under 12%.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-slate-900 border border-slate-800">
+                <span className="text-emerald-400 font-bold text-xs uppercase block mb-1">Module 3</span>
+                <h5 className="font-extrabold text-white text-sm">Canva Banner Master Pack</h5>
+                <p className="text-xs text-slate-300 mt-1 leading-relaxed">
+                  100+ fully editable banners, trust badges, logos, and Instagram story promo templates.
+                </p>
+              </div>
+            </div>
+
+            <div className="p-4 rounded-2xl bg-gradient-to-r from-[#171b33] to-[#121422] border border-cyan-500/30 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div>
+                <h5 className="font-bold text-white text-sm">Ready to launch your e-commerce store today?</h5>
+                <p className="text-xs text-slate-400 mt-0.5">
+                  Get full lifetime Google Drive access to all 4 modules for just ₹99.
+                </p>
+              </div>
+              <a
+                href="https://rzp.io/rzp/nQllqCJ"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-3 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 text-black font-black text-sm uppercase tracking-wide shrink-0 shadow-lg hover:brightness-110 transition-all text-center"
+              >
+                Instant Access ₹99
+              </a>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );

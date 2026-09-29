@@ -7,11 +7,13 @@ import {
   X, 
   FileText, 
   ShieldCheck, 
-  Smartphone, 
-  Monitor, 
-  Apple, 
   FolderDown,
-  Mail
+  TrendingUp,
+  Store,
+  Truck,
+  Megaphone,
+  Mail,
+  Zap
 } from 'lucide-react';
 
 interface OfflinePdfModalProps {
@@ -31,70 +33,62 @@ export const OfflinePdfModal: React.FC<OfflinePdfModalProps> = ({ isOpen, onClos
 
   const handleDownloadTextGuide = () => {
     const textContent = `================================================================================
-CAPCUT PRO - WORKS WITHOUT VPN (OFFLINE REFERENCE GUIDE & LINKS)
+ALL-IN-ONE E-COMMERCE & DROPSHIPPING BUNDLE (OFFLINE GUIDE & DIRECTORY)
 Official Store: Zilomart (zilomart.shop)
 Date: ${new Date().toLocaleDateString()}
 Support: support@zilomart.shop | info@zilomart.shop
 ================================================================================
 
 1. PRODUCT OVERVIEW & PRICING:
+   - Product: Complete E-Com & Dropshipping Super Bundle
    - Provider: Zilomart (zilomart.shop)
-   - Price: ₹299/- One Time Payment (Regular: ₹6,999)
+   - Price: ₹99/- One Time Payment (Regular: ₹4,999) - Save 98%
    - Instant Razorpay Order Link: https://rzp.io/rzp/nQllqCJ
    - Guarantee: 7-Day Money Back Guarantee (100% Risk Free)
-   - Compatibility: Windows PC, Android, macOS
 
-2. DOWNLOAD REPOSITORY MIRRORS:
-   - Windows Desktop v4.8.0 Pro (.exe):
-     https://drive.google.com/drive/folders/1CapCut-Pro-Windows-VIP-Mirror
-   - Android Pro APK v12.4.0 (No VPN / Auto-Captions Unlocked):
-     https://drive.google.com/drive/folders/1CapCut-Pro-Android-VIP-Mirror
-   - Mac DMG v4.8.0 (Intel & Apple Silicon M1/M2/M3):
-     https://drive.google.com/drive/folders/1CapCut-Pro-MacOS-VIP-Mirror
-   - 10,000+ Viral Reels & Shorts Templates, SFX, Fonts Pack:
-     https://drive.google.com/drive/folders/1CapCut-Reels-Assets-Drive-VIP
-
-3. STEP-BY-STEP NO-VPN INSTALLATION GUIDE:
-   A. For Windows:
-      1. Download the CapCut Pro Windows installer from the mirror above.
-      2. Run setup and choose English / International.
-      3. The custom hosts/proxy bypass is pre-packaged; do NOT connect any VPN.
-      4. Launch CapCut. All Pro effects, transitions, auto-captions, and 4K export will work directly!
+2. GOOGLE DRIVE VIP FOLDERS INCLUDED:
+   A. 1,000+ High-Margin Winning Products Spreadsheet:
+      - Sourcing rates, selling price targets, profit margin calculations.
+      - Facebook/Instagram Ad Library spy links & ready video creatives.
    
-   B. For Android:
-      1. Download the CapCut Pro APK to your Android device.
-      2. Enable "Install from unknown sources" in settings if prompted.
-      3. Open app. The servers route through internal high-speed CDN.
-      4. Sign in with any free account (or skip). All Pro features are unlocked.
+   B. 15+ Premium Shopify Themes Pack:
+      - Pre-built high-converting e-commerce themes with sticky cart buttons,
+        scarcity countdown timers, and integrated review widgets.
+   
+   C. Direct Indian Suppliers Network (Surat, Delhi, Mumbai, Tirupur, Jaipur):
+      - Verified wholesalers & manufacturers with Zero MOQ (1-piece dropshipping).
+      - COD support via Shiprocket, NimbusPost, Delhivery.
+   
+   D. 500+ High-ROAS Video Ads & Ad Copy Vault:
+      - 3-second hook formulas, script templates, Canva banner master pack.
+      - WhatsApp order verification system to cut RTO/fake orders under 12%.
+
+3. STEP-BY-STEP E-COMMERCE STORE LAUNCH ROADMAP:
+   Step 1: Pick 3-5 trending winning products from Module 1.
+   Step 2: Connect with the verified Indian supplier in Module 3 via WhatsApp.
+   Step 3: Import the ready-to-run Shopify theme from Module 2 (takes 10 mins).
+   Step 4: Launch Facebook / Instagram ads using the tested creatives in Module 4.
+   Step 5: Fulfill orders using zero-MOQ supplier dropshipping with COD!
 
 4. FREQUENTLY ASKED QUESTIONS (FAQ):
-   Q: What I will get in this bundle?
-   A: The Package includes AI-powered tools, Android editing app, editing software for windows, and ready-made templates. With tutorials to make editing fast and professional - even for beginners.
+   Q: How do I access after paying ₹99?
+   A: You receive instant Google Drive VIP lifetime access link on email.
 
-   Q: How to Purchase and access it?
-   A: We are a trusted merchant on Razorpay, so your payment is 100% secure. Once payment is successful, you'll receive an instant download link via email. Just check all folders of your email such as Promotion/Update/Social/Spam.
+   Q: Are the suppliers based in India?
+   A: Yes! All suppliers are in Surat, Delhi, Mumbai, Jaipur, and Tirupur with direct phone/WhatsApp contacts.
 
-   Q: What do you mean by lifetime?
-   A: Lifetime mean you can download your assets anytime no hurry to download at once. Link will be available for lifetime. We also keep it updating with latest data & softwares.
-
-   Q: What if I didn't get email?
-   A: There is no question of not getting Download link 100% Everyone will get the link. You should check all folders Spam/Promotion/Updates.
-
-   Q: What are your Support Channel?
-   A: For After sale support, You can reach us by email support@zilomart.shop or info@zilomart.shop.
-
-   Q: What is the validity of Download link?
-   A: It is for lifetime you can download it for unlimited time.
+   Q: Support Channel:
+   A: support@zilomart.shop | info@zilomart.shop (Response within 15 mins).
 
 ================================================================================
-(c) 2026 Zilomart. All Rights Reserved.
+(c) 2026 Zilomart · zilomart.shop. All Rights Reserved.
 `;
 
     const blob = new Blob([textContent], { type: 'text/plain;charset=utf-8' });
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    link.download = 'CapCut_Pro_Zilomart_Offline_Reference.txt';
+    link.download = 'ECom_Super_Bundle_Zilomart_Guide.txt';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -102,12 +96,10 @@ Support: support@zilomart.shop | info@zilomart.shop
   };
 
   const handleCopyLinks = () => {
-    const text = `CapCut Pro Offline Links Directory (Zilomart):
+    const text = `E-Commerce Super Bundle Reference (Zilomart):
 Store: https://zilomart.shop
-Windows Download: https://drive.google.com/drive/folders/1CapCut-Pro-Windows-VIP-Mirror
-Android Download: https://drive.google.com/drive/folders/1CapCut-Pro-Android-VIP-Mirror
-Mac Download: https://drive.google.com/drive/folders/1CapCut-Pro-MacOS-VIP-Mirror
-Templates Drive: https://drive.google.com/drive/folders/1CapCut-Reels-Assets-Drive-VIP
+Order Link: https://rzp.io/rzp/nQllqCJ
+VIP Google Drive Access Key: ECOM-2026-VIP-LIFETIME-ACCESS
 Support: support@zilomart.shop`;
 
     navigator.clipboard.writeText(text);
@@ -121,10 +113,10 @@ Support: support@zilomart.shop`;
         {/* Header Bar */}
         <div className="px-6 py-4 bg-[#14172a] border-b border-slate-800 flex items-center justify-between shrink-0">
           <div className="flex items-center gap-2">
-            <FileText className="w-5 h-5 text-cyan-400" />
+            <FileText className="w-5 h-5 text-amber-400" />
             <div>
               <h3 className="text-base font-extrabold text-white">
-                Offline Reference Manual &amp; Link Directory
+                E-Com Bundle Offline Reference &amp; Roadmap Guide
               </h3>
               <p className="text-[11px] text-slate-400">
                 Provided by Zilomart · Print as PDF or save locally for offline reference
@@ -144,7 +136,7 @@ Support: support@zilomart.shop`;
           <div className="flex items-center gap-2">
             <button
               onClick={handlePrint}
-              className="px-3.5 py-1.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-black font-bold flex items-center gap-1.5 transition-all cursor-pointer shadow-md"
+              className="px-3.5 py-1.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-bold flex items-center gap-1.5 transition-all cursor-pointer shadow-md"
             >
               <Printer className="w-4 h-4" />
               <span>Print to PDF / Save as PDF</span>
@@ -171,7 +163,7 @@ Support: support@zilomart.shop`;
             ) : (
               <>
                 <Copy className="w-4 h-4" />
-                <span>Copy All Links</span>
+                <span>Copy Links</span>
               </>
             )}
           </button>
@@ -182,11 +174,11 @@ Support: support@zilomart.shop`;
           {/* Document Title Header */}
           <div className="p-4 rounded-2xl bg-[#171b33] border border-cyan-500/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div>
-              <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-cyan-950 text-cyan-400 border border-cyan-800 text-[10px] font-bold uppercase tracking-wider mb-1">
+              <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-amber-950 text-amber-400 border border-amber-800 text-[10px] font-bold uppercase tracking-wider mb-1">
                 Zilomart Official Document
               </div>
               <h2 className="text-lg font-black text-white">
-                CapCut Pro Unlocked Bundle — Offline Reference Guide
+                All-In-One E-Commerce &amp; Dropshipping Super Bundle
               </h2>
               <div className="flex items-center gap-1.5 text-slate-300 mt-1">
                 <span>Official Store:</span>
@@ -194,9 +186,8 @@ Support: support@zilomart.shop`;
               </div>
             </div>
 
-            {/* Quick Status Tag */}
             <div className="text-right text-[11px] text-slate-400">
-              <span className="text-emerald-400 font-bold block">✓ No VPN Required</span>
+              <span className="text-emerald-400 font-bold block">✓ Instant Google Drive Delivery</span>
               <span>Updated for 2026</span>
             </div>
           </div>
@@ -204,17 +195,17 @@ Support: support@zilomart.shop`;
           {/* Section 1: Overview and Pricing */}
           <div>
             <h4 className="text-sm font-bold text-cyan-300 uppercase tracking-wider mb-2 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-cyan-400"></span>
+              <span className="w-2 h-2 rounded-full bg-amber-400"></span>
               1. Bundle Details &amp; Pricing
             </h4>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               <div className="p-3 rounded-xl bg-slate-900 border border-slate-800">
                 <span className="text-slate-400 block text-[11px]">Regular Price</span>
-                <span className="text-rose-400 line-through font-bold text-sm">₹ 6,999</span>
+                <span className="text-rose-400 line-through font-bold text-sm">₹ 4,999</span>
               </div>
               <div className="p-3 rounded-xl bg-slate-900 border border-amber-500/40">
                 <span className="text-amber-300 block text-[11px] font-semibold">Special Offer</span>
-                <span className="text-amber-400 font-black text-lg">₹ 299/- (Lifetime)</span>
+                <span className="text-amber-400 font-black text-lg">₹ 99/- (Lifetime)</span>
               </div>
               <div className="p-3 rounded-xl bg-slate-900 border border-slate-800">
                 <span className="text-slate-400 block text-[11px]">Guarantee</span>
@@ -226,111 +217,83 @@ Support: support@zilomart.shop`;
                 href="https://rzp.io/rzp/nQllqCJ"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-2 px-3 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 text-black font-extrabold text-xs flex items-center justify-center gap-1.5 shadow-md hover:brightness-110 transition-all text-center"
+                className="w-full py-2.5 px-3 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 text-black font-extrabold text-xs flex items-center justify-center gap-1.5 shadow-md hover:brightness-110 transition-all text-center"
               >
-                <span>Instant Payment Link: https://rzp.io/rzp/nQllqCJ</span>
+                <span>Instant Razorpay Payment Link: https://rzp.io/rzp/nQllqCJ</span>
               </a>
             </div>
           </div>
 
-          {/* Section 2: Direct Download Mirrors */}
+          {/* Section 2: 4 Core Modules Inside */}
           <div>
             <h4 className="text-sm font-bold text-cyan-300 uppercase tracking-wider mb-2 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-cyan-400"></span>
-              2. Download Links &amp; Cloud Mirrors
+              2. Core Modules Inside Google Drive VIP
             </h4>
             <div className="space-y-2">
               <div className="p-3 rounded-xl bg-slate-900/90 border border-slate-800 flex items-center justify-between">
                 <div className="flex items-center gap-2.5">
-                  <Monitor className="w-4 h-4 text-sky-400 shrink-0" />
+                  <TrendingUp className="w-4 h-4 text-amber-400 shrink-0" />
                   <div>
-                    <span className="font-bold text-white block">Windows Pro Desktop Edition v4.8.0</span>
+                    <span className="font-bold text-white block">1,000+ High-Margin Winning Products</span>
                     <span className="text-[11px] text-slate-400">
-                      Bypass lock pre-patched · 482 MB (.exe)
+                      Sourcing rates, profit margins &amp; tested ad angles
                     </span>
                   </div>
                 </div>
-                <span className="px-3 py-1 rounded-lg bg-sky-950 text-sky-300 border border-sky-700 text-xs font-semibold">
-                  Direct Mirror
+                <span className="px-2.5 py-1 rounded-lg bg-amber-950 text-amber-300 border border-amber-700 text-xs font-semibold">
+                  Module 1
                 </span>
               </div>
 
               <div className="p-3 rounded-xl bg-slate-900/90 border border-slate-800 flex items-center justify-between">
                 <div className="flex items-center gap-2.5">
-                  <Smartphone className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <Store className="w-4 h-4 text-cyan-400 shrink-0" />
                   <div>
-                    <span className="font-bold text-white block">Android Pro Mod APK v12.4.0</span>
+                    <span className="font-bold text-white block">15+ Premium Shopify Themes</span>
                     <span className="text-[11px] text-slate-400">
-                      Auto-captions, effects, no watermark · 168 MB (.apk)
+                      Fast-loading, sticky buy buttons, conversion widgets
                     </span>
                   </div>
                 </div>
-                <span className="px-3 py-1 rounded-lg bg-emerald-950 text-emerald-300 border border-emerald-700 text-xs font-semibold">
-                  Direct Mirror
+                <span className="px-2.5 py-1 rounded-lg bg-cyan-950 text-cyan-300 border border-cyan-700 text-xs font-semibold">
+                  Module 2
                 </span>
               </div>
 
               <div className="p-3 rounded-xl bg-slate-900/90 border border-slate-800 flex items-center justify-between">
                 <div className="flex items-center gap-2.5">
-                  <Apple className="w-4 h-4 text-slate-300 shrink-0" />
+                  <Truck className="w-4 h-4 text-emerald-400 shrink-0" />
                   <div>
-                    <span className="font-bold text-white block">macOS Pro Edition v4.8.0</span>
+                    <span className="font-bold text-white block">Direct Verified Indian Suppliers Directory</span>
                     <span className="text-[11px] text-slate-400">
-                      Apple Silicon M1/M2/M3 &amp; Intel · 512 MB (.dmg)
+                      Surat, Delhi, Mumbai WhatsApp contacts · Zero MOQ · COD ready
                     </span>
                   </div>
                 </div>
-                <span className="px-3 py-1 rounded-lg bg-slate-800 text-slate-300 border border-slate-700 text-xs font-semibold">
-                  Direct Mirror
+                <span className="px-2.5 py-1 rounded-lg bg-emerald-950 text-emerald-300 border border-emerald-700 text-xs font-semibold">
+                  Module 3
                 </span>
               </div>
 
               <div className="p-3 rounded-xl bg-slate-900/90 border border-slate-800 flex items-center justify-between">
                 <div className="flex items-center gap-2.5">
-                  <FolderDown className="w-4 h-4 text-amber-400 shrink-0" />
+                  <Megaphone className="w-4 h-4 text-purple-400 shrink-0" />
                   <div>
-                    <span className="font-bold text-white block">10,000+ Viral Reels Templates &amp; Sound FX</span>
+                    <span className="font-bold text-white block">500+ High-ROAS Video Ads &amp; RTO Scripts</span>
                     <span className="text-[11px] text-slate-400">
-                      Google Drive VIP Lifetime Folder
+                      Hook formulas, Canva templates &amp; COD return reduction guide
                     </span>
                   </div>
                 </div>
-                <span className="px-3 py-1 rounded-lg bg-amber-950 text-amber-300 border border-amber-700 text-xs font-semibold">
-                  VIP Drive
+                <span className="px-2.5 py-1 rounded-lg bg-purple-950 text-purple-300 border border-purple-700 text-xs font-semibold">
+                  Module 4
                 </span>
               </div>
             </div>
           </div>
 
-          {/* Section 3: Step-by-Step Installation Instructions */}
-          <div>
-            <h4 className="text-sm font-bold text-cyan-300 uppercase tracking-wider mb-2 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-cyan-400"></span>
-              3. Installation Instructions (No VPN)
-            </h4>
-            <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-3">
-              <div>
-                <span className="font-bold text-white block">For Windows PC / Laptop:</span>
-                <p className="text-slate-300 text-xs mt-0.5">
-                  1. Run the installer (.exe) as Administrator. <br />
-                  2. Choose your preferred language (English default). <br />
-                  3. The patched edition includes internal route configurations so you never need to connect a third-party VPN. <br />
-                  4. Enjoy full 4K 60FPS export, optical flow smooth slow-motion, and auto-subtitles.
-                </p>
-              </div>
-
-              <div className="pt-2 border-t border-slate-800">
-                <span className="font-bold text-white block">For Android Devices:</span>
-                <p className="text-slate-300 text-xs mt-0.5">
-                  1. Download the APK directly and tap Install. <br />
-                  2. If requested, tap "Allow install unknown apps from this source". <br />
-                  3. Open CapCut Pro. Connect directly over your normal WiFi or mobile 4G/5G data (Jio, Airtel, Vi). All templates and Pro stickers load instantly.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Section 4: Customer Support Contact */}
+          {/* Section 3: Customer Support Contact */}
           <div className="p-4 rounded-xl bg-[#14172a] border border-cyan-500/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
             <div>
               <span className="font-bold text-white block">Need Help or Re-send Link?</span>

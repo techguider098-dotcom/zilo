@@ -5,38 +5,38 @@ import { FaqItem } from '../types';
 const FAQ_DATA: FaqItem[] = [
   {
     id: '1',
-    question: 'What I will get in this bundle?',
+    question: 'What will I get in this E-Com Super Bundle?',
     answer:
-      'The Package includes AI-powered tools, Android editing app, editing software for windows, and ready-made templates. With tutorials to make editing fast and professional - even for beginners.',
+      'The package includes 1,000+ handpicked winning products with video ads & profit margins, 15+ premium high-converting Shopify store themes, direct verified Indian suppliers directory (Surat, Delhi, Mumbai with zero MOQ & COD support), 500+ high-ROAS Facebook/Instagram ad templates, and complete RTO fraud prevention blueprints.',
   },
   {
     id: '2',
-    question: 'How to Purchase and access it?',
+    question: 'How do I purchase and access the bundle?',
     answer:
-      "We are a trusted merchant on Razorpay, so your payment is 100% secure. Once payment is successful, you'll receive an instant download link via email. Just check all folders of your email such as Promotion/Update/Social/Spam.",
+      "We are a verified merchant on Razorpay (SACHIN KUMAR / Zilomart). Once your ₹99 payment is successful, you will instantly receive your lifetime Google Drive VIP download link on your email and on-screen.",
   },
   {
     id: '3',
-    question: 'What do you mean by lifetime?',
+    question: 'Do I need technical or coding experience?',
     answer:
-      'Lifetime mean you can download your assets anytime no hurry to download at once. Link will be available for lifetime. We also keep it updating with latest data & softwares.',
+      'Zero coding required! The Shopify themes are 1-click importable with pre-built product layouts, sticky buy buttons, and reviews. The suppliers can be contacted directly via WhatsApp.',
   },
   {
     id: '4',
-    question: "What if I didn't get email?",
+    question: 'Are the Indian suppliers verified with COD support?',
     answer:
-      'There is no question of not getting Download link 100% Everyone will get the link. You should check all folders Spam/Promotion/Updates',
+      'Yes, all suppliers listed are verified manufacturers & wholesalers in Surat, Delhi, Mumbai, Jaipur, and Tirupur with zero MOQ and COD courier integration (Shiprocket, NimbusPost, Delhivery).',
   },
   {
     id: '5',
-    question: 'What are your Support Channel?',
+    question: 'What are your support channels?',
     answer:
-      'For After sale support, You can reach us by email support@zilomart.shop or info@zilomart.shop',
+      'For any purchase assistance or link re-sends, reach our 24/7 team via email at support@zilomart.shop or info@zilomart.shop. Average response time is under 15 minutes.',
   },
   {
     id: '6',
-    question: 'What is the validity of Download link',
-    answer: 'It is for lifetime you can download it for unlimited time',
+    question: 'What is the validity of the Google Drive link?',
+    answer: 'It is for lifetime with regular additions of new winning products and trending ad creatives every month.',
   },
 ];
 

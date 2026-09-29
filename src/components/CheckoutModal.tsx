@@ -4,16 +4,17 @@ import {
   ShieldCheck, 
   Zap, 
   Check, 
-  Smartphone, 
-  Monitor, 
-  Apple, 
   FolderDown, 
   Download, 
   Copy, 
   ArrowRight,
   Mail,
   Lock,
-  Sparkles
+  Sparkles,
+  TrendingUp,
+  Store,
+  Truck,
+  Megaphone
 } from 'lucide-react';
 
 interface CheckoutModalProps {
@@ -28,7 +29,6 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
   onOpenPdf,
 }) => {
   const [email, setEmail] = useState('');
-  const [platform, setPlatform] = useState<'All' | 'Android' | 'Windows' | 'iOS'>('All');
   const [isProcessing, setIsProcessing] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [copiedKey, setCopiedKey] = useState(false);
@@ -48,7 +48,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
   };
 
   const handleCopyKey = () => {
-    navigator.clipboard.writeText('CAPPRO-2026-VIP-LIFETIME-UNLOCKED');
+    navigator.clipboard.writeText('ECOM-2026-VIP-LIFETIME-ACCESS');
     setCopiedKey(true);
     setTimeout(() => setCopiedKey(false), 2000);
   };
@@ -64,10 +64,10 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
             </div>
             <div>
               <h3 className="text-base font-extrabold text-white">
-                {isSuccess ? 'Order Confirmed · Instant Download' : 'Secure Checkout — CapCut Pro Lifetime'}
+                {isSuccess ? 'Order Confirmed · Instant Google Drive Access' : 'Secure Checkout — E-Com Super Bundle'}
               </h3>
               <span className="text-[11px] text-cyan-400 font-semibold block">
-                Razorpay Verified Merchant
+                Razorpay Verified Merchant · SACHIN KUMAR
               </span>
             </div>
           </div>
@@ -83,22 +83,22 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
         {!isSuccess ? (
           <form onSubmit={handleSubmit} className="p-6 space-y-4 text-xs">
             {/* Price lockup */}
-            <div className="p-4 rounded-2xl bg-gradient-to-r from-slate-900 to-[#14172a] border border-cyan-500/30 flex items-center justify-between">
+            <div className="p-4 rounded-2xl bg-gradient-to-r from-slate-900 to-[#14172a] border border-amber-500/40 flex items-center justify-between">
               <div>
-                <span className="text-white font-bold block text-sm">CapCut Pro Full Suite</span>
+                <span className="text-white font-bold block text-sm">All-In-One E-Com Super Bundle</span>
                 <span className="text-slate-400 text-[11px]">
-                  Windows + Android + Mac + 10K Templates Pack
+                  1,000+ Products + 15+ Themes + Indian Suppliers + 500+ Ads
                 </span>
                 <div className="flex items-center gap-2 mt-1">
-                  <span className="text-rose-400 line-through text-xs font-semibold">₹ 6,999</span>
+                  <span className="text-rose-400 line-through text-xs font-semibold">₹ 4,999</span>
                   <span className="text-emerald-400 text-[10px] font-bold bg-emerald-950/80 px-1.5 py-0.5 rounded border border-emerald-500/30">
-                    SAVE 95%
+                    SAVE 98%
                   </span>
                 </div>
               </div>
               <div className="text-right">
-                <span className="text-2xl font-black text-amber-400 leading-none block">
-                  ₹299
+                <span className="text-3xl font-black text-amber-400 leading-none block">
+                  ₹99
                 </span>
                 <span className="text-[10px] text-slate-400 uppercase font-semibold">
                   One-Time / Lifetime
@@ -109,7 +109,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
             {/* Email field */}
             <div>
               <label className="block text-[11px] font-bold text-slate-200 mb-1">
-                Your Email Address (Download link is sent here immediately) *
+                Your Email Address (Instant Google Drive VIP link is sent here) *
               </label>
               <div className="relative">
                 <Mail className="w-4 h-4 text-slate-500 absolute left-3 top-1/2 -translate-y-1/2" />
@@ -123,40 +123,27 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                 />
               </div>
               <span className="text-[10px] text-slate-400 block mt-1">
-                Please double check all folders including Spam/Promotion/Updates.
+                Double-check your email. Download link activates immediately upon payment.
               </span>
             </div>
 
-            {/* Platform Selection */}
-            <div>
-              <label className="block text-[11px] font-bold text-slate-200 mb-1.5">
-                Select Your Primary Device
-              </label>
-              <div className="grid grid-cols-4 gap-2">
-                {[
-                  { id: 'All', label: 'All 3 (Bundle)', icon: Sparkles },
-                  { id: 'Windows', label: 'Windows', icon: Monitor },
-                  { id: 'Android', label: 'Android', icon: Smartphone },
-                  { id: 'iOS', label: 'Mac / iOS', icon: Apple },
-                ].map((item) => {
-                  const Icon = item.icon;
-                  const isSelected = platform === item.id;
-                  return (
-                    <button
-                      key={item.id}
-                      type="button"
-                      onClick={() => setPlatform(item.id as any)}
-                      className={`p-2 rounded-xl border flex flex-col items-center gap-1 transition-all text-center ${
-                        isSelected
-                          ? 'bg-cyan-950/70 border-cyan-400 text-cyan-300 font-bold shadow-md'
-                          : 'bg-slate-900 border-slate-800 text-slate-400 hover:text-white'
-                      }`}
-                    >
-                      <Icon className="w-4 h-4" />
-                      <span className="text-[10px]">{item.label}</span>
-                    </button>
-                  );
-                })}
+            {/* Included in this pack */}
+            <div className="p-3 rounded-xl bg-slate-900/90 border border-slate-800 space-y-1.5 text-[11px]">
+              <div className="flex items-center gap-2 text-slate-200">
+                <TrendingUp className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                <span>1,000+ High-Margin Winning Products Database</span>
+              </div>
+              <div className="flex items-center gap-2 text-slate-200">
+                <Store className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+                <span>15+ Premium High-Converting Shopify Store Themes</span>
+              </div>
+              <div className="flex items-center gap-2 text-slate-200">
+                <Truck className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                <span>Verified Zero-MOQ Indian Suppliers Directory (Surat, Delhi, Mumbai)</span>
+              </div>
+              <div className="flex items-center gap-2 text-slate-200">
+                <Megaphone className="w-3.5 h-3.5 text-purple-400 shrink-0" />
+                <span>500+ High-ROAS Video Ads, Ad Copy &amp; RTO Reduction Blueprints</span>
               </div>
             </div>
 
@@ -164,7 +151,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
             <div className="p-3 rounded-xl bg-slate-900/60 border border-slate-800 text-[11px] text-slate-300 flex items-center justify-between">
               <span className="flex items-center gap-1.5">
                 <Lock className="w-3.5 h-3.5 text-cyan-400" />
-                UPI (GPay, PhonePe, Paytm, BHIM), Cards &amp; NetBanking
+                UPI (GPay, PhonePe, Paytm), Cards &amp; NetBanking
               </span>
               <span className="text-emerald-400 font-bold">256-Bit SSL</span>
             </div>
@@ -176,11 +163,11 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
               className="w-full py-3.5 rounded-2xl bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-400 hover:to-orange-400 text-black font-black text-base tracking-wide uppercase shadow-[0_10px_30px_rgba(245,158,11,0.4)] flex items-center justify-center gap-2 cursor-pointer transition-all active:scale-98"
             >
               {isProcessing ? (
-                <span>Connecting to Razorpay Gateway...</span>
+                <span>Opening Razorpay Gateway...</span>
               ) : (
                 <>
                   <Zap className="w-5 h-5 fill-black" />
-                  <span>Pay ₹299 &amp; Get Instant Link</span>
+                  <span>Pay ₹99 &amp; Get Instant Google Drive Link</span>
                 </>
               )}
             </button>
@@ -191,14 +178,14 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
               rel="noopener noreferrer"
               className="w-full py-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-cyan-300 font-bold text-xs flex items-center justify-center gap-1.5 border border-cyan-500/30 transition-all text-center"
             >
-              <span>Direct 1-Click Razorpay Payment (rzp.io)</span>
+              <span>Direct Razorpay Payment Link (rzp.io/rzp/nQllqCJ)</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </a>
 
             {/* Guarantee footer note */}
             <div className="text-center text-[10px] text-slate-400 flex items-center justify-center gap-1.5">
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-              <span>7-Day 100% Money Back Guarantee · No Questions Asked</span>
+              <span>7-Day 100% Money Back Guarantee · 100% Risk Free</span>
             </div>
           </form>
         ) : (
@@ -210,7 +197,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
               </div>
               <h4 className="text-base font-black text-white">Payment Successful!</h4>
               <p className="text-xs text-emerald-300 mt-0.5">
-                Your instant download link has been dispatched to <span className="font-bold underline">{email}</span>
+                Your instant Google Drive access link has been dispatched to <span className="font-bold underline">{email}</span>
               </p>
             </div>
 
@@ -221,7 +208,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                   Lifetime VIP Access Key
                 </span>
                 <span className="font-mono text-cyan-300 font-bold text-xs">
-                  CAPPRO-2026-VIP-LIFETIME-UNLOCKED
+                  ECOM-2026-VIP-LIFETIME-ACCESS
                 </span>
               </div>
               <button
@@ -233,58 +220,74 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
               </button>
             </div>
 
-            {/* Direct Downloads */}
+            {/* Direct Google Drive Folders */}
             <div className="space-y-2">
               <span className="font-bold text-white block text-[11px] uppercase tracking-wider">
-                Direct High-Speed Mirrors
+                Direct Google Drive VIP Folders
               </span>
 
               <a
                 href="https://drive.google.com"
                 target="_blank"
                 rel="noreferrer"
-                className="p-3 rounded-xl bg-slate-900 border border-slate-700/80 hover:border-cyan-400 flex items-center justify-between group transition-all"
+                className="p-3 rounded-xl bg-slate-900 border border-slate-700/80 hover:border-amber-400 flex items-center justify-between group transition-all"
               >
                 <div className="flex items-center gap-2.5">
-                  <Monitor className="w-4 h-4 text-sky-400" />
+                  <TrendingUp className="w-4 h-4 text-amber-400" />
                   <div>
-                    <span className="font-bold text-white block">Download CapCut Pro for Windows</span>
-                    <span className="text-[10px] text-slate-400">Pre-activated .exe (482 MB) · No VPN</span>
-                  </div>
-                </div>
-                <Download className="w-4 h-4 text-cyan-400 group-hover:scale-110 transition-transform" />
-              </a>
-
-              <a
-                href="https://drive.google.com"
-                target="_blank"
-                rel="noreferrer"
-                className="p-3 rounded-xl bg-slate-900 border border-slate-700/80 hover:border-cyan-400 flex items-center justify-between group transition-all"
-              >
-                <div className="flex items-center gap-2.5">
-                  <Smartphone className="w-4 h-4 text-emerald-400" />
-                  <div>
-                    <span className="font-bold text-white block">Download CapCut Pro for Android</span>
-                    <span className="text-[10px] text-slate-400">Direct APK (168 MB) · Auto-captions ON</span>
-                  </div>
-                </div>
-                <Download className="w-4 h-4 text-cyan-400 group-hover:scale-110 transition-transform" />
-              </a>
-
-              <a
-                href="https://drive.google.com"
-                target="_blank"
-                rel="noreferrer"
-                className="p-3 rounded-xl bg-slate-900 border border-slate-700/80 hover:border-cyan-400 flex items-center justify-between group transition-all"
-              >
-                <div className="flex items-center gap-2.5">
-                  <FolderDown className="w-4 h-4 text-amber-400" />
-                  <div>
-                    <span className="font-bold text-white block">10,000+ Viral Reels Google Drive</span>
-                    <span className="text-[10px] text-slate-400">Sound effects, fonts, LUTs, overlays</span>
+                    <span className="font-bold text-white block">1,000+ Winning Products Database</span>
+                    <span className="text-[10px] text-slate-400">Excel / Notion Sheet with video ads &amp; profit margins</span>
                   </div>
                 </div>
                 <Download className="w-4 h-4 text-amber-400 group-hover:scale-110 transition-transform" />
+              </a>
+
+              <a
+                href="https://drive.google.com"
+                target="_blank"
+                rel="noreferrer"
+                className="p-3 rounded-xl bg-slate-900 border border-slate-700/80 hover:border-cyan-400 flex items-center justify-between group transition-all"
+              >
+                <div className="flex items-center gap-2.5">
+                  <Store className="w-4 h-4 text-cyan-400" />
+                  <div>
+                    <span className="font-bold text-white block">15+ Premium Shopify Themes Pack</span>
+                    <span className="text-[10px] text-slate-400">Pre-customized high-converting store zip files</span>
+                  </div>
+                </div>
+                <Download className="w-4 h-4 text-cyan-400 group-hover:scale-110 transition-transform" />
+              </a>
+
+              <a
+                href="https://drive.google.com"
+                target="_blank"
+                rel="noreferrer"
+                className="p-3 rounded-xl bg-slate-900 border border-slate-700/80 hover:border-emerald-400 flex items-center justify-between group transition-all"
+              >
+                <div className="flex items-center gap-2.5">
+                  <Truck className="w-4 h-4 text-emerald-400" />
+                  <div>
+                    <span className="font-bold text-white block">Direct Indian Suppliers Directory</span>
+                    <span className="text-[10px] text-slate-400">Surat, Delhi, Mumbai WhatsApp contacts (Zero MOQ)</span>
+                  </div>
+                </div>
+                <Download className="w-4 h-4 text-emerald-400 group-hover:scale-110 transition-transform" />
+              </a>
+
+              <a
+                href="https://drive.google.com"
+                target="_blank"
+                rel="noreferrer"
+                className="p-3 rounded-xl bg-slate-900 border border-slate-700/80 hover:border-purple-400 flex items-center justify-between group transition-all"
+              >
+                <div className="flex items-center gap-2.5">
+                  <Megaphone className="w-4 h-4 text-purple-400" />
+                  <div>
+                    <span className="font-bold text-white block">500+ High-ROAS Ad Creatives &amp; RTO Scripts</span>
+                    <span className="text-[10px] text-slate-400">Video hooks, Canva templates &amp; COD reduction guide</span>
+                  </div>
+                </div>
+                <Download className="w-4 h-4 text-purple-400 group-hover:scale-110 transition-transform" />
               </a>
             </div>
 
@@ -295,7 +298,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                 onClick={onOpenPdf}
                 className="flex-1 py-2.5 rounded-xl bg-cyan-950 border border-cyan-500/40 text-cyan-300 font-bold text-xs hover:bg-cyan-900 flex items-center justify-center gap-1.5"
               >
-                <span>Save Offline PDF Reference</span>
+                <span>Save Offline PDF Guide</span>
               </button>
               <button
                 type="button"

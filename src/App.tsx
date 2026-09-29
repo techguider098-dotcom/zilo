@@ -83,47 +83,47 @@ export default function App() {
       <div className="print-only p-8 text-black bg-white max-w-4xl mx-auto">
         <div className="border-b-2 border-black pb-4 mb-6">
           <h1 className="text-2xl font-black uppercase tracking-tight">
-            CapCut Pro Bundle — Offline Manual &amp; Links Reference
+            All-In-One E-Commerce &amp; Dropshipping Super Bundle — Reference Sheet
           </h1>
           <p className="text-sm font-semibold text-gray-700 mt-1">
-            Official Store: <span className="font-mono text-blue-700">zilomart.shop</span>
+            Official Store: <span className="font-mono text-blue-700">zilomart.shop</span> | Price: <strong>₹99</strong>
           </p>
           <p className="text-xs text-gray-500 mt-0.5">
-            Document generated for offline reference. All Pro features unlocked without VPN.
+            Instant Google Drive delivery. Direct access link: https://rzp.io/rzp/nQllqCJ
           </p>
         </div>
 
         <div className="space-y-6 text-sm">
           <section>
             <h2 className="text-base font-bold uppercase tracking-wider text-gray-900 border-b pb-1 mb-2">
-              1. Direct Download Mirrors
+              1. Core VIP Drive Modules Included
             </h2>
             <ul className="space-y-1.5 list-disc pl-5">
               <li>
-                <strong>Windows Pro Desktop Edition (.exe):</strong> Available for Windows 10/11 (64-bit). Pre-patched for direct server access without VPN.
+                <strong>1,000+ High-Margin Winning Products:</strong> Researched spreadsheet with tested video ads, pricing formulas, and supplier sourcing links.
               </li>
               <li>
-                <strong>Android Pro Mod Edition (.apk):</strong> Compatible with Android 8.0+. Full auto-captions, 4K export, and premium transitions unlocked.
+                <strong>15+ Premium Shopify Store Themes:</strong> Pre-built high-converting responsive store themes with sticky buy buttons and conversion badges.
               </li>
               <li>
-                <strong>macOS Pro Edition (.dmg):</strong> Compatible with Apple Silicon (M1/M2/M3/M4) and Intel Macs.
+                <strong>Direct Verified Indian Suppliers Network:</strong> Surat, Delhi, Mumbai, Tirupur, Jaipur wholesalers with zero MOQ and COD shipping.
               </li>
               <li>
-                <strong>10,000+ Viral Reels Google Drive VIP Pack:</strong> Sound effects, typography fonts, cinematic LUTs, and trending templates.
+                <strong>500+ High-ROAS Video Ads &amp; Marketing Vault:</strong> Hook formulas, Canva templates, and RTO return reduction blueprints.
               </li>
             </ul>
           </section>
 
           <section>
             <h2 className="text-base font-bold uppercase tracking-wider text-gray-900 border-b pb-1 mb-2">
-              2. Installation Without VPN Guide
+              2. Quick Store Launch Blueprint
             </h2>
             <div className="space-y-2">
               <p>
-                <strong>Windows:</strong> Download the pre-configured installer and install in standard mode. Do not turn on any VPN or proxy. The software connects directly to accelerated content servers.
+                <strong>Step 1:</strong> Select 3 winning products from Module 1 and connect with the Surat/Delhi verified suppliers via WhatsApp (Module 3).
               </p>
               <p>
-                <strong>Android:</strong> Install the provided APK. Open the application on your normal 4G/5G mobile data or WiFi network. All Pro templates and cloud filters load immediately.
+                <strong>Step 2:</strong> Import the pre-configured Shopify theme into your store and launch Facebook/Instagram ads using the ready-made creatives in Module 4.
               </p>
             </div>
           </section>
