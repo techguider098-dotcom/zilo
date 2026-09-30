@@ -100,7 +100,7 @@ export const FooterSection: React.FC<FooterSectionProps> = ({ onOpenModal }) => 
 
         {/* Copyright */}
         <div className="pt-8 border-t border-slate-900 text-center text-slate-500 text-[11px]">
-          &copy; 2026 zilomart. All rights reserved. CapCut is a trademark of ByteDance Ltd.
+          &copy; 2026 Zilomart · zilomart.shop · All rights reserved.
         </div>
       </div>
     </footer>

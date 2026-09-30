@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Sparkles, 
   ShoppingBag, 
@@ -15,14 +15,45 @@ import {
   Layers,
   ArrowRight,
   Database,
-  FileCode2
+  FileCode2,
+  Flame,
+  Timer
 } from 'lucide-react';
 
 interface HeroSectionProps {
   onOpenCheckout: () => void;
 }
 
+const TEN_MINUTES_MS = 10 * 60 * 1000;
+
 export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenCheckout }) => {
+  // Dynamic 10-minute cyclical countdown timer
+  const [timeLeft, setTimeLeft] = useState(() => {
+    const now = Date.now();
+    const remainingMs = TEN_MINUTES_MS - (now % TEN_MINUTES_MS);
+    return {
+      minutes: Math.floor(remainingMs / 60000),
+      seconds: Math.floor((remainingMs % 60000) / 1000),
+      percentage: Math.max(8, Math.min(95, Math.floor(((TEN_MINUTES_MS - remainingMs) / TEN_MINUTES_MS) * 100)))
+    };
+  });
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const now = Date.now();
+      const remainingMs = TEN_MINUTES_MS - (now % TEN_MINUTES_MS);
+      const minutes = Math.floor(remainingMs / 60000);
+      const seconds = Math.floor((remainingMs % 60000) / 1000);
+      const percentage = Math.max(8, Math.min(95, Math.floor(((TEN_MINUTES_MS - remainingMs) / TEN_MINUTES_MS) * 100)));
+
+      setTimeLeft({ minutes, seconds, percentage });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const formattedMins = String(timeLeft.minutes).padStart(2, '0');
+  const formattedSecs = String(timeLeft.seconds).padStart(2, '0');
   return (
     <section className="relative pt-6 pb-12 px-4 sm:px-6 max-w-4xl mx-auto flex flex-col items-center text-center">
       {/* Background ambient lighting glows */}
@@ -115,8 +146,61 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenCheckout }) => {
           </span>
         </div>
 
+        {/* Dynamic 'Time Remaining' Urgency Countdown Timer (Resets every 10 minutes) */}
+        <div className="w-full max-w-sm mt-3 mb-2 p-3.5 rounded-2xl bg-gradient-to-b from-[#1b1509] to-[#120f06] border-2 border-amber-500/50 shadow-[0_0_25px_rgba(245,158,11,0.25)] flex flex-col items-center">
+          <div className="flex items-center gap-1.5 text-xs font-black uppercase tracking-wider text-amber-300 mb-2">
+            <Flame className="w-4 h-4 text-orange-500 animate-bounce" />
+            <span>SPECIAL ₹99 DEAL EXPIRES IN</span>
+            <Timer className="w-4 h-4 text-amber-400 animate-spin" style={{ animationDuration: '4s' }} />
+          </div>
+
+          {/* Digital Timer Counters */}
+          <div className="flex items-center justify-center gap-2 font-mono">
+            {/* Minutes Box */}
+            <div className="flex flex-col items-center">
+              <div className="w-14 sm:w-16 py-1.5 rounded-xl bg-black/90 border border-amber-500/40 text-amber-300 font-black text-2xl sm:text-3xl tracking-wider shadow-inner text-center">
+                {formattedMins}
+              </div>
+              <span className="text-[10px] text-amber-200/80 font-sans font-bold uppercase mt-1">
+                Minutes
+              </span>
+            </div>
+
+            <span className="text-2xl sm:text-3xl font-black text-amber-400 animate-pulse pb-4">
+              :
+            </span>
+
+            {/* Seconds Box */}
+            <div className="flex flex-col items-center">
+              <div className="w-14 sm:w-16 py-1.5 rounded-xl bg-black/90 border border-amber-500/40 text-amber-300 font-black text-2xl sm:text-3xl tracking-wider shadow-inner text-center">
+                {formattedSecs}
+              </div>
+              <span className="text-[10px] text-amber-200/80 font-sans font-bold uppercase mt-1">
+                Seconds
+              </span>
+            </div>
+          </div>
+
+          {/* Live Urgency Indicator Bar */}
+          <div className="w-full mt-2.5 space-y-1">
+            <div className="w-full h-1.5 bg-black/70 rounded-full overflow-hidden p-0.5 border border-amber-500/20">
+              <div 
+                className="h-full bg-gradient-to-r from-amber-500 via-yellow-400 to-orange-500 rounded-full transition-all duration-1000 ease-linear shadow-[0_0_8px_#f59e0b]"
+                style={{ width: `${100 - timeLeft.percentage}%` }}
+              />
+            </div>
+            <div className="flex items-center justify-between text-[10px] text-slate-400 px-0.5 font-medium">
+              <span className="text-amber-400 font-bold flex items-center gap-1">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
+                Price resets to ₹4,999 soon
+              </span>
+              <span className="text-rose-400 font-semibold">92% claimed</span>
+            </div>
+          </div>
+        </div>
+
         {/* Offer Price Highlight with Yellow Background */}
-        <div className="my-3 px-6 py-2.5 rounded-2xl bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 text-black shadow-[0_0_35px_rgba(245,158,11,0.5)] transform hover:scale-105 transition-transform">
+        <div className="my-2 px-6 py-2.5 rounded-2xl bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 text-black shadow-[0_0_35px_rgba(245,158,11,0.5)] transform hover:scale-105 transition-transform">
           <div className="flex items-center justify-center gap-2">
             <span className="text-3xl sm:text-5xl font-black tracking-tight leading-none text-black">
               ₹99/-
